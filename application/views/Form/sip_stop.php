@@ -108,7 +108,7 @@ $title = '';
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="sip_stop_rm_name">RM Name</label>
                                 <input class="form-control form-control-sm mt-1" type="text" name="sip_stop_rm_name" id="sip_stop_rm_name">
-                            </div>
+                            </div> 
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="sip_stop_pouse_date_from">SIP PAUSE </label>
                                 <input class="form-control form-control-sm mt-1" type="text" name="sip_stop_pause" id="sip_stop_pause">

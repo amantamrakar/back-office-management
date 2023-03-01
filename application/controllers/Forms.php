@@ -198,4 +198,50 @@ class Forms extends CI_Controller
 				break;
 		}
 	}
+	public function bluk_upload()
+	{
+		if ($this->session->userdata('id') != '') {
+			$session_name = $this->session->userdata('name');
+			$session_id = $this->session->userdata('id');
+			$session_data = array(
+				'session_name' => $session_name,
+				'session_id' => $session_id
+			);
+			$this->session->set_userdata($session_data);
+			$this->load->view('modules/nav_bar', $session_data);
+			$this->load->view('bluck_upload/index');
+		} else {
+			redirect(base_url() . 'admin/index');
+		}
+	}
+
+	public function Excel_import()
+	{
+		if ($this->session->userdata('id') != '') {
+			$this->load->model('UploadExcel');
+			$table = $this->input->post('excel_type');
+			$file = $_FILES['excel_file']['name'];
+			$extenstion = pathinfo($file,PATHINFO_EXTENSION);
+			if($extenstion == 'xls'){
+				$reader =  new\PhpOffice\PhpSpreadsheet\Reader\Xls();
+			}elseif($extenstion == 'xlsx'){
+				$reader =  new\PhpOffice\PhpSpreadsheet\Reader\xlsx();
+			}
+
+			$spreadsheet = $reader->load($_FILES['excel_file']['tmp_name']);
+			$sheetdata = $spreadsheet->getActiveSheet()->toArray();
+			$excel_data = array();
+			for ($i=2; $i < count($sheetdata) ; $i++) { 
+				array_push($excel_data,$sheetdata[$i]);
+			}
+			
+			$this->UploadExcel->UploadExcelFile($excel_data,$table);
+
+			 
+
+			
+		} else {
+			redirect(base_url() . 'admin/index');
+		}
+	}
 }
