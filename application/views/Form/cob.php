@@ -90,7 +90,7 @@
                                 <label for="cob_done_ok">Ok</label>
                                 <select class="form-select form-select-sm mt-1" name="cob_done_ok" id="cob_done_ok" aria-label=".form-select-sm example">
                                     <option  >Choose</option>
-                                    <option value="Ok">Ok</option>
+                                    <option value="OK">Ok</option>
                                     <option value="Blank">Blank</option>
                                 </select>
                             </div>

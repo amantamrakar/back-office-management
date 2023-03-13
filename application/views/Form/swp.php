@@ -34,10 +34,10 @@
                     <?php
                     $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'Decemeber');
                     ?>
-                    <form action="" id="<?php echo $data.'Form' ?>">
+                    <form action="" id="<?php echo $data . 'Form' ?>">
 
                         <div class="row">
-                        <input class="form-control form-control-sm mt-1" type="text" name="YmFzZTY0IGRlY29kZXI=" value="<?php echo base64_encode($data) ?>" id="" hidden>
+                            <input class="form-control form-control-sm mt-1" type="text" name="YmFzZTY0IGRlY29kZXI=" value="<?php echo base64_encode($data) ?>" id="" hidden>
 
                             <div class="col-md-3 col-sm-12">
                                 <label for="swp_date">Date</label>
@@ -50,7 +50,7 @@
                             <div class="col-md-3 col-sm-12">
                                 <label for="swp_month">Month</label>
                                 <select class="form-select form-select-sm mt-1" name="swp_month" id="swp_month" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <?php
                                     for ($i = 0; $i < count($month); $i++) { ?>
                                         <option value="<?php echo $month[$i] ?>"><?php echo $month[$i] ?></option>
@@ -63,7 +63,7 @@
                             <div class="col-md-3 col-sm-12">
                                 <label for="swp_of_on">On/Off</label>
                                 <select class="form-select form-select-sm mt-1" name="swp_of_on" id="swp_of_on" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
                                 </select>
@@ -78,8 +78,8 @@
                                 <input class="form-control form-control-sm mt-1" type="text" name="swp_submit" id="swp_submit">
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
-                                <label for="swp_scheme_name">Scheme Name</label>
-                                <input class="form-control form-control-sm mt-1" type="text" name="swp_scheme_name" id="swp_scheme_name">
+                                <label for="swp_scheme">Scheme Name</label>
+                                <input class="form-control form-control-sm mt-1" type="text" name="swp_scheme" id="swp_scheme">
                             </div>
 
                             <div class="col-md-3 col-sm-12 mt-3">
@@ -93,7 +93,7 @@
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="swp_done_ok">Ok</label>
                                 <select class="form-select form-select-sm mt-1" name="swp_done_ok" id="swp_done_ok" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <option value="Ok">Ok</option>
                                     <option value="Blank">Blank</option>
                                 </select>
@@ -110,17 +110,21 @@
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="swp_duration">Duration</label>
                                 <select class="form-select form-select-sm mt-1" name="swp_duration" id="swp_duration" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <option value="Monthly">Monthly</option>
                                 </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="swp_no_head">No Head</label>
                                 <select class="form-select form-select-sm mt-1" name="swp_no_head" id="swp_no_head" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <option value="NG">NG</option>
                                     <option value="AJ">AJ</option>
                                 </select>
+                            </div>
+                            <div class="col-md-3 col-sm-12 mt-3">
+                                <label for="swp_other_info">STP Other Info.</label>
+                                <input class="form-control form-control-sm mt-1" type="text" name="swp_other_info" id="swp_other_info">
                             </div>
 
                         </div>

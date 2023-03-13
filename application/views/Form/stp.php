@@ -92,8 +92,8 @@ $title = '';
                                 <input class="form-control form-control-sm mt-1" type="text" name="stp_scheme" id="stp_scheme">
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
-                                <label for="stp_scheme">Submit Place</label>
-                                <input class="form-control form-control-sm mt-1" type="text" name="stp_scheme" id="stp_scheme">
+                                <label for="stp_submit">Submit Place</label>
+                                <input class="form-control form-control-sm mt-1" type="text" name="stp_submit" id="stp_submit">
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="stp_to_scheme">To Scheme Name</label>
@@ -132,7 +132,7 @@ $title = '';
                                     <option value="Blank">Blank</option>
                                 </select>
                             </div>
-
+                                    
 
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="stp_rm_name">RM Name</label>
@@ -140,12 +140,17 @@ $title = '';
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="stp_comp_continue">Complete / Continue</label>
-                                <input class="form-control form-control-sm mt-1" type="text" name="stp_comp_continue" id="stp_comp_continue">
+                                <select class="form-select form-select-sm mt-1" name="stp_comp_continue" id="stp_comp_continue" aria-label=".form-select-sm example">
+                                    <option  >Choose</option>
+                                    <option value="COMPLETE">Complete</option>
+                                    <option value="CONTINUE">Continue</option>
+                                </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="stp_stp_type">STP Type</label>
                                 <input class="form-control form-control-sm mt-1" type="text" name="stp_stp_type" id="stp_stp_type">
                             </div>
+                        
 
 
                         </div>

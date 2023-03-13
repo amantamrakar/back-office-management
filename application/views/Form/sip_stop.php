@@ -63,22 +63,24 @@ $title = '';
                                 <label for="sip_stop_of_on">On/Off</label>
                                 <select class="form-select form-select-sm mt-1" name="sip_stop_of_on" id="sip_stop_of_on" aria-label=".form-select-sm example">
                                     <option  >Choose</option>
-                                    <option value="On">On</option>
-                                    <option value="Off">Off</option>
+                                    <option value="ON">On</option>
+                                    <option value="OFF">Off</option>
                                 </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="sip_stop_client_name">Client Name</label>
                                 <input class="form-control form-control-sm mt-1" type="text" name="sip_stop_client_name" id="sip_stop_client_name">
                             </div>
+                            
 
+                            <!-- Change "for" and "id" from "sip_stop_fund_name" to "sip_stop_fund" -->
                             <div class="col-md-3 col-sm-12 mt-3">
-                                <label for="sip_stop_fund_name">Fund Name</label>
-                                <input class="form-control form-control-sm mt-1" type="text" name="sip_stop_fund_name" id="sip_stop_fund_name">
+                                <label for="sip_stop_fund">Fund Name</label>
+                                <input class="form-control form-control-sm mt-1" type="text" name="sip_stop_fund" id="sip_stop_fund">
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
-                                <label for="sip_stop_scheme_name">Scheme Name</label>
-                                <input class="form-control form-control-sm mt-1" type="text" name="sip_stop_scheme_name" id="sip_stop_scheme_name">
+                                <label for="sip_stop_scheme">Scheme Name</label>
+                                <input class="form-control form-control-sm mt-1" type="text" name="sip_stop_scheme" id="sip_stop_scheme">
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="sip_stop_submit">Submit Place</label>
@@ -110,15 +112,15 @@ $title = '';
                                 <input class="form-control form-control-sm mt-1" type="text" name="sip_stop_rm_name" id="sip_stop_rm_name">
                             </div> 
                             <div class="col-md-3 col-sm-12 mt-3">
-                                <label for="sip_stop_pouse_date_from">SIP PAUSE </label>
+                                <label for="sip_stop_pouse_date_from">SIP Pause </label>
                                 <input class="form-control form-control-sm mt-1" type="text" name="sip_stop_pause" id="sip_stop_pause">
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
-                                <label for="sip_stop_pouse_date_from">SIP Pouse Date From </label>
+                                <label for="sip_stop_pouse_date_from">SIP Pause Date From </label>
                                 <input class="form-control form-control-sm mt-1" type="date" name="sip_stop_pause_date_from" id="sip_stop_pause_date_from">
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
-                                <label for="sip_stop_pouse_date_to">SIP Pouse Date To</label>
+                                <label for="sip_stop_pouse_date_to">SIP Pause Date To</label>
                                 <input class="form-control form-control-sm mt-1" type="date" name="sip_stop_pause_date_to" id="sip_stop_pause_date_to">
                             </div>
                         </div>

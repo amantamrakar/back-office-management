@@ -147,8 +147,6 @@ class Forms extends CI_Controller
 			case 'LUMPSUM':
 				array_shift(($data));
 				array_pop(($data));
-				// echo my_arr($data);
-				// die();
 				$this->Form_model->form_submit($data, $task);
 				break;
 			case 'SIP':
@@ -221,25 +219,64 @@ class Forms extends CI_Controller
 			$this->load->model('UploadExcel');
 			$table = $this->input->post('excel_type');
 			$file = $_FILES['excel_file']['name'];
-			$extenstion = pathinfo($file,PATHINFO_EXTENSION);
-			if($extenstion == 'xls'){
+			$extenstion = pathinfo($file, PATHINFO_EXTENSION);
+			if ($extenstion == 'xls') {
 				$reader =  new\PhpOffice\PhpSpreadsheet\Reader\Xls();
-			}elseif($extenstion == 'xlsx'){
+			} elseif ($extenstion == 'xlsx') {
 				$reader =  new\PhpOffice\PhpSpreadsheet\Reader\xlsx();
 			}
 
 			$spreadsheet = $reader->load($_FILES['excel_file']['tmp_name']);
 			$sheetdata = $spreadsheet->getActiveSheet()->toArray();
 			$excel_data = array();
-			for ($i=2; $i < count($sheetdata) ; $i++) { 
-				array_push($excel_data,$sheetdata[$i]);
+			for ($i = 2; $i < count($sheetdata); $i++) {
+				array_push($excel_data, $sheetdata[$i]);
 			}
-			
-			$this->UploadExcel->UploadExcelFile($excel_data,$table);
+			// for ($i = 0; $i < count($excel_data); $i++) {
+			// 	$newDate = date("Y-m-d", strtotime($excel_data[$i][0]));
+			// 	echo $newDate.'<br>';
+			// }
+			// echo my_arr($excel_data);
+	
+			// die();
 
-			 
+			$this->UploadExcel->UploadExcelFile($excel_data, $table);
+		} else {
+			redirect(base_url() . 'admin/index');
+		}
+	}
 
-			
+
+	public function Update_delete_data()
+	{
+		if ($this->session->userdata('id') != '') {
+			$data['page_title'] = 'Update Delete Data';
+			$session_name = $this->session->userdata('name');
+			$session_id = $this->session->userdata('id');
+			$session_data = array(
+				'session_name' => $session_name,
+				'session_id' => $session_id
+			);
+			$this->session->set_userdata($session_data);
+			$this->load->view('modules/nav_bar', $session_data);
+			$this->load->view('functionality/nav', $data);
+		} else {
+			redirect(base_url() . 'admin/index');
+		}
+	}
+	public function show_all_data()
+	{
+		if ($this->session->userdata('id') != '') {
+			$data['page_title'] = 'Update Delete Data';
+			$session_name = $this->session->userdata('name');
+			$session_id = $this->session->userdata('id');
+			$session_data = array(
+				'session_name' => $session_name,
+				'session_id' => $session_id
+			);
+			$this->session->set_userdata($session_data);
+			$this->load->view('modules/nav_bar', $session_data);
+			$this->load->view('show_data/nav', $data);
 		} else {
 			redirect(base_url() . 'admin/index');
 		}

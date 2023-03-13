@@ -63,8 +63,8 @@ $title = '';
                                 <label for="redem_of_on">On/Off</label>
                                 <select class="form-select form-select-sm mt-1" name="redem_of_on" id="redem_of_on" aria-label=".form-select-sm example">
                                     <option  >Choose</option>
-                                    <option value="Yes">Yes</option>
-                                    <option value="No">No</option>
+                                    <option value="ON">ON</option>
+                                    <option value="OFF">OFF</option>
                                 </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
@@ -86,10 +86,9 @@ $title = '';
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="redem_mode_of_pay">Mode Of Payment</label>
                                 <?php
-                                $mop_arr = array('Cheque', 'NEFT', 'RTGS', 'DC');
+                                $mop_arr = array('CHEQUE', 'NEFT', 'RTGS', 'DC');
                                 ?>
                                 <select class="form-select form-select-sm mt-1" name="redem_mode_of_pay" id="redem_mode_of_pay" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
                                     <option  >Choose</option>
                                     <?php
                                     for ($i = 0; $i < count($mop_arr); $i++) { ?>

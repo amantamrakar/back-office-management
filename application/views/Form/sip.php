@@ -48,7 +48,7 @@ $title = '';
                             <div class="col-md-3 col-sm-12">
                                 <label for="sip_month">Month</label>
                                 <select class="form-select form-select-sm mt-1" name="sip_month" id="sip_month" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <?php
                                     for ($i = 0; $i < count($month); $i++) { ?>
                                         <option value="<?php echo $month[$i] ?>"><?php echo $month[$i] ?></option>
@@ -61,9 +61,9 @@ $title = '';
                             <div class="col-md-3 col-sm-12">
                                 <label for="sip_of_on">On/Off</label>
                                 <select class="form-select form-select-sm mt-1" name="sip_of_on" id="sip_of_on" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
-                                    <option value="On">On</option>
-                                    <option value="Off">Off</option>
+                                    <option selected>Choose</option>
+                                    <option value="ON">On</option>
+                                    <option value="OFF">OFF</option>
                                 </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
@@ -101,7 +101,7 @@ $title = '';
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="sip_remark">Remark</label>
                                 <select class="form-select form-select-sm mt-1" name="sip_remark" id="sip_remark" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <option value="Clear">Clear</option>
                                     <option value="Blank">Blank</option>
                                 </select>
@@ -109,8 +109,8 @@ $title = '';
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="sip_done_ok">Ok</label>
                                 <select class="form-select form-select-sm mt-1" name="sip_done_ok" id="sip_done_ok" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
-                                    <option value="Ok">Ok</option>
+                                    <option selected>Choose</option>
+                                    <option value="OK">Ok</option>
                                     <option value="Blank">Blank</option>
                                 </select>
                             </div>
@@ -125,9 +125,9 @@ $title = '';
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="sip_continue_stop">Continue/Stop</label>
                                 <select class="form-select form-select-sm mt-1" name="sip_continue_stop" id="sip_continue_stop" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
-                                    <option value="Continue">Continue</option>
-                                    <option value="Stop">Stop</option>
+                                    <option selected>Choose</option>
+                                    <option value="CONTINUE">CONTINUE</option>
+                                    <option value="STOP">STOP</option>
                                 </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
@@ -137,18 +137,18 @@ $title = '';
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="sip_category">Category</label>
                                 <select class="form-select form-select-sm mt-1" name="sip_category" id="sip_category" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
-                                    <option value="Liquid">Liquid</option>
-                                    <option value="Equity">Equity</option>
+                                    <option selected>Choose</option>
+                                    <option value="LIQUID">LIQUID</option>
+                                    <option value="EQUITY">EQUITY</option>
                                     <option value="Debt">Debt</option>
                                 </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="sip_client_type">Client Type</label>
                                 <select class="form-select form-select-sm mt-1" name="sip_client_type" id="sip_client_type" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
-                                    <option value="Existng">Existng</option>
-                                    <option value="New-Client">New-Client</option>
+                                    <option>Choose</option>
+                                    <option value="EXISTING">Existng</option>
+                                    <option value="NEW">New-Client</option>
                                 </select>
                             </div>
                         </div>

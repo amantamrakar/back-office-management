@@ -50,7 +50,7 @@ $title = '';
                                 <div class="col-md-3 col-sm-12">
                                     <label for="lum_month">Month</label>
                                     <select class="form-select form-select-sm mt-1" name="lum_month" id="lum_month" aria-label=".form-select-sm example">
-                                        <option  >Choose</option>
+                                        <option selected  >Choose</option>
                                         <?php
                                         for ($i = 0; $i < count($month); $i++) { ?>
                                             <option value="<?php echo $month[$i] ?>"><?php echo $month[$i] ?></option>
@@ -64,8 +64,8 @@ $title = '';
                                     <label for="lum_of_on">On/Off</label>
                                     <select class="form-select form-select-sm mt-1" name="lum_of_on" id="lum_of_on" aria-label=".form-select-sm example">
                                         <option  >Choose</option>
-                                        <option value="On">On</option>
-                                        <option value="Off">Off</option>
+                                        <option value="ON">On</option>
+                                        <option value="OFF">Off</option>
                                     </select>
                                 </div>
                                 <div class="col-md-3 col-sm-12 mt-3">
@@ -109,7 +109,7 @@ $title = '';
                                     <label for="lum_done_ok">Ok</label>
                                     <select class="form-select form-select-sm mt-1" name="lum_done_ok" id="lum_done_ok" aria-label=".form-select-sm example">
                                         <option  >Choose</option>
-                                        <option value="Ok">Ok</option>
+                                        <option value="OK">Ok</option>
                                         <option value="Blank">Blank</option>
                                     </select>
                                 </div>
@@ -121,16 +121,16 @@ $title = '';
                                     <label for="lum_client_type">Client Type</label>
                                     <select class="form-select form-select-sm mt-1" name="lum_client_type" id="lum_client_type" aria-label=".form-select-sm example">
                                         <option  >Choose</option>
-                                        <option value="Existng">Existng</option>
-                                        <option value="New-Client">New-Client</option>
+                                        <option value="EXISTING">Existng</option>
+                                        <option value="NEW">New-Client</option>
                                     </select>
                                 </div>
                                 <div class="col-md-3 col-sm-12 mt-3">
                                     <label for="lum_category">Category</label>
                                     <select class="form-select form-select-sm mt-1" name="lum_category" id="lum_category" aria-label=".form-select-sm example">
                                         <option  >Choose</option>
-                                        <option value="Liquid">Liquid</option>
-                                        <option value="Equity">Equity</option>
+                                        <option value="LIQUID">Liquid</option>
+                                        <option value="EQUITY">Equity</option>
                                         <option value="Debt">Debt</option>
                                     </select>
                                 </div>

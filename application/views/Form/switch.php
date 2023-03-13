@@ -62,8 +62,8 @@ $title = '';
                                 <label for="switch_of_on">On/Off</label>
                                 <select class="form-select form-select-sm mt-1" name="switch_of_on" id="switch_of_on" aria-label=".form-select-sm example">
                                     <option  >Choose</option>
-                                    <option value="Yes">Yes</option>
-                                    <option value="No">No</option>
+                                    <option value="ON">ON</option>
+                                    <option value="OFF">OFF</option>
                                 </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
@@ -72,7 +72,7 @@ $title = '';
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="switch_stp_switch">STP or Switch</label>
-                                <?php $stp_switch_arr = array('For NFO', 'Only Switch', 'STP Done', 'Switch Done', 'SWP Done') ?>
+                                <?php $stp_switch_arr = array('FOR NFO', 'ONLY SWITCH', 'STP DONE', 'SWITCH DONE', 'SWP DONE') ?>
                                 <select class="form-select form-select-sm mt-1" name="switch_stp_switch" id="switch_stp_switch" aria-label=".form-select-sm example">
                                     <option  >Choose</option>
                                     <?php
@@ -134,7 +134,7 @@ $title = '';
                                 <label for="switch_done_ok">Ok</label>
                                 <select class="form-select form-select-sm mt-1" name="switch_done_ok" id="switch_done_ok" aria-label=".form-select-sm example">
                                     <option  >Choose</option>
-                                    <option value="Ok">Ok</option>
+                                    <option value="OK">Ok</option>
                                     <option value="Blank">Blank</option>
                                 </select>
                             </div>

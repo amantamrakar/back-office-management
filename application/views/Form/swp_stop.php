@@ -63,8 +63,8 @@ $title = '';
                                 <label for="swp_stop_of_on">On/Off</label>
                                 <select class="form-select form-select-sm mt-1" name="swp_stop_of_on" id="swp_stop_of_on" aria-label=".form-select-sm example">
                                     <option  >Choose</option>
-                                    <option value="On">On</option>
-                                    <option value="Off">Off</option>
+                                    <option value="ON">On</option>
+                                    <option value="OFF">Off</option>
                                 </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
@@ -76,11 +76,9 @@ $title = '';
                                 <input class="form-control form-control-sm mt-1" type="text" name="swp_stop_submit" id="swp_stop_submit">
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
-                                <label for="swp_stop_scheme_name">Scheme Name</label>
-                                <input class="form-control form-control-sm mt-1" type="text" name="swp_stop_scheme_name" id="swp_stop_scheme_name">
+                                <label for="swp_stop_scheme">Scheme Name</label>
+                                <input class="form-control form-control-sm mt-1" type="text" name="swp_stop_scheme" id="swp_stop_scheme">
                             </div>
-
-
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="swp_stop_amount">Amount</label>
                                 <input class="form-control form-control-sm mt-1" type="text" name="swp_stop_amount" id="swp_stop_amount">
