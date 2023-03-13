@@ -52,8 +52,27 @@
             <div class="card">
                 <div class="card">
                     <?php
-                    echo '<pre>';
-                    print_r($title);
+                    if ($title == 'LUMPSUM') {
+                        $tag = 'lum';
+                    } elseif ($title == 'SIP') {
+                        $tag = 'sip';
+                    } elseif ($title == 'REDEMPTION') {
+                        $tag = 'redem';
+                    } elseif ($title == 'SWITCH') {
+                        $tag = 'switch';
+                    } elseif ($title == 'STP') {
+                        $tag = 'stp';
+                    } elseif ($title == 'SWP') {
+                        $tag = 'swp';
+                    } elseif ($title == 'COB') {
+                        $tag = 'cob';
+                    } elseif ($title == 'SIP-STOP') {
+                        $tag = 'sip_stop';
+                    } elseif ($title == 'STP-STOP') {
+                        $tag = 'stp_stop';
+                    } elseif ($title == 'SWP-STOP') {
+                        $tag = 'swp_stop';
+                    }
                     ?>
                 </div>
             </div>
