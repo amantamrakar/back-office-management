@@ -62,8 +62,8 @@ $title = '';
                                 <label for="stp_of_on">On/Off</label>
                                 <select class="form-select form-select-sm mt-1" name="stp_of_on" id="stp_of_on" aria-label=".form-select-sm example">
                                     <option  >Choose</option>
-                                    <option value="Yes">Yes</option>
-                                    <option value="No">No</option>
+                                    <option value="ON">ON</option>
+                                    <option value="OFF">OFF</option>
                                 </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">

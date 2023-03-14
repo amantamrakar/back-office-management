@@ -876,7 +876,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
         <div class="col-md-3 col-sm-12 mt-3">
             <label for="switch_stp_switch">STP or Switch</label>
             <?php $stp_switch_arr = array('FOR NFO', 'ONLY SWITCH', 'STP DONE', 'SWITCH DONE', 'SWP DONE') ?>
-            <select class="form-select form-select-sm mt-1" name="switch_stp_sw itch" id="switch_stp_switch" aria-label=".form-select-sm example">
+            <select class="form-select form-select-sm mt-1" name="switch_stp_switch" id="switch_stp_switch" aria-label=".form-select-sm example">
                 <option>Choose</option>
                 <?php
                 for ($i = 0; $i < count($stp_switch_arr); $i++) {
@@ -1143,12 +1143,12 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
         <!-- Date 1  -->
         <div class="col-md-3 col-sm-12 mt-3">
             <label for="stp_date_1">Date 1</label>
-            <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['stp_date_1'] ?>" type=" date" name="stp_date_1" id="stp_date_1">
+            <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['stp_date_1'] ?>" type="date" name="stp_date_1" id="stp_date_1">
         </div>
         <!-- Date 2  -->
         <div class="col-md-3 col-sm-12 mt-3">
             <label for="stp_date_2">Date To</label>
-            <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['stp_date_2'] ?>" type=" date" name="stp_date_2" id="stp_date_2">
+            <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['stp_date_2'] ?>" type="date" name="stp_date_2" id="stp_date_2">
         </div>
         <!-- ok  -->
         <div class="col-md-3 col-sm-12 mt-3">
@@ -1382,12 +1382,12 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
         <!-- Start Date  -->
         <div class="col-md-3 col-sm-12 mt-3">
             <label for="swp_date_start">Date 1</label>
-            <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['swp_date_start'] ?>" type=" date" name="swp_date_start" id="swp_date_start">
+            <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['swp_date_start'] ?>" type="date" name="swp_date_start" id="swp_date_start">
         </div>
         <!-- End Date  -->
         <div class="col-md-3 col-sm-12 mt-3">
             <label for="swp_date_end">Date To</label>
-            <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['swp_date_end'] ?>" type=" date" name="swp_date_end" id="swp_date_end">
+            <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['swp_date_end'] ?>" type="date" name="swp_date_end" id="swp_date_end">
         </div>
         <!-- Duration  -->
         <div class="col-md-3 col-sm-12 mt-3">

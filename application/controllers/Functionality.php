@@ -45,6 +45,8 @@ class Functionality extends CI_Controller
             $id = $post['update_id'];
             $table_name = $post['table_type'];
             $data = array_splice($post,2);
+            // echo my_arr($data);
+            // die();
             $update = $this->functionality_model->update_my_forms($table_name,$id,$data);
             if($update){
                 echo json_encode(array('status'=> true,'message'=>'Successfully Update'));

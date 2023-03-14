@@ -1,6 +1,12 @@
 <?php
+
+use PharIo\Manifest\Application;
+
 $title = '';
 // echo $data;
+
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -55,6 +61,22 @@ $title = '';
                         </div>
                     </form>
                 </div>
+                <div class="card-body">
+                    <h3 class="text-center">Download Excel Formate</h3>
+                    <div class="container text-center">
+                        <!-- <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="cob">COB</button>
+                        <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="lum"> Lumpsum </button>
+                        <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="red"> Reduption </button>
+                        <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="sip"> SIP </button>
+                        <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="sip_stop"> SIP-Stop </button>
+                        <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="stp"> STP </button>
+                        <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="stp_stop"> STP-Stop </button>
+                        <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="switch"> Switch </button>
+                        <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="swp"> SWP </button>
+                        <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="swp_stop"> SWP-Stop </button> -->
+                    </div>
+
+                </div>
             </div>
         </div>
     </body>
@@ -79,6 +101,21 @@ $title = '';
                     console.log(data);
                 }
             });
+        })
+        $(".download_excel").on("click", function() {
+            var name = $(this).data("filename");
+            // console.log(name);
+            $.ajax({
+                url: "index.php",
+                type: "POST",
+                data: {
+                    key_name: name,
+                },
+                success: function(data) {
+
+                }
+            })
+
         })
     </script>
     <script>

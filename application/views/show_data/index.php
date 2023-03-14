@@ -16,8 +16,15 @@
 
 <body>
     <style>
-        #view_data_filter {
+        #Show_data_table_filter {
             margin-bottom: 10px;
+        }
+
+        #Show_data_table_filter,
+        #Show_data_table_length,
+        #Show_data_table_info,
+        #Show_data_table_paginate {
+            font-size: 13.5px;
         }
     </style>
     </head>
@@ -46,6 +53,12 @@
         } elseif ($title == 'SWP-STOP') {
             $tag = 'swp_stop';
         }
+        ?>
+
+        <?php
+        // echo '<pre>';
+        // print_r($get);
+        // die();
         ?>
 
         <div class="container-fluid">
@@ -82,7 +95,9 @@
     </body>
     <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
     <script>
-
+        $(document).ready(function() {
+            let table = new DataTable('#Show_data_table');
+        });
     </script>
 
 

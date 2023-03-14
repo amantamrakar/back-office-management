@@ -131,7 +131,7 @@ $title = '';
                                 </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
-                                <label for="sip_telly_name">RM Name</label>
+                                <label for="sip_rm_name">RM Name</label>
                                 <input class="form-control form-control-sm mt-1" type="text" name="sip_rm_name" id="sip_rm_name">
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
@@ -150,6 +150,10 @@ $title = '';
                                     <option value="EXISTING">Existng</option>
                                     <option value="NEW">New-Client</option>
                                 </select>
+                            </div>
+                            <div class="col-md-3 col-sm-12 mt-3">
+                                <label for="sip_target_boster_sip">Target Boost SIP</label>
+                                <input class="form-control form-control-sm mt-1" type="text" name="sip_target_boster_sip" id="sip_target_boster_sip">
                             </div>
                         </div>
                         <div class="row">
