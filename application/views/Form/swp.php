@@ -115,8 +115,8 @@
                                 </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
-                                <label for="swp_no_head">No Head</label>
-                                <select class="form-select form-select-sm mt-1" name="swp_no_head" id="swp_no_head" aria-label=".form-select-sm example">
+                                <label for="swp_no_head">RM Name</label>
+                                <select class="form-select form-select-sm mt-1" name="swp_rm_name" id="swp_rm_name" aria-label=".form-select-sm example">
                                     <option>Choose</option>
                                     <option value="NG">NG</option>
                                     <option value="AJ">AJ</option>
