@@ -129,7 +129,6 @@ $title = '';
                                 <select class="form-select form-select-sm mt-1" name="stp_done_ok" id="stp_done_ok" aria-label=".form-select-sm example">
                                     <option  >Choose</option>
                                     <option value="Ok">Ok</option>
-                                    <option value="Blank">Blank</option>
                                 </select>
                             </div>
                                     

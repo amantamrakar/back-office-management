@@ -45,7 +45,7 @@ $title = '';
                                 </div>
                                 <div class="col-md-3 col-sm-12">
                                     <label for="lum_s_no">S.No.</label>
-                                    <input class="form-control form-control-sm mt-1" type="text" name="lum_s_no" id="lum_s_no" value="1">
+                                    <input class="form-control form-control-sm mt-1" type="text" name="lum_s_no" id="lum_s_no" >
                                 </div>
                                 <div class="col-md-3 col-sm-12">
                                     <label for="lum_month">Month</label>
@@ -70,38 +70,38 @@ $title = '';
                                 </div>
                                 <div class="col-md-3 col-sm-12 mt-3">
                                     <label for="lum_client_name">Client Name</label>
-                                    <input class="form-control form-control-sm mt-1" type="text" name="lum_client_name" id="lum_client_name" value="Aman">
+                                    <input class="form-control form-control-sm mt-1" type="text" name="lum_client_name" id="lum_client_name" >
                                 </div>
                                 <div class="col-md-3 col-sm-12 mt-3">
                                     <label for="lum_fund">Fund Name</label>
-                                    <input class="form-control form-control-sm mt-1" type="text" name="lum_fund" id="lum_fund" value="HDFC">
+                                    <input class="form-control form-control-sm mt-1" type="text" name="lum_fund" id="lum_fund" >
                                 </div>
                                 <div class="col-md-3 col-sm-12 mt-3">
                                     <label for="lum_scheme">Scheme Name</label>
-                                    <input class="form-control form-control-sm mt-1" type="text" name="lum_scheme" id="lum_scheme" value="HDFC Flexicap">
+                                    <input class="form-control form-control-sm mt-1" type="text" name="lum_scheme" id="lum_scheme" >
                                 </div>
                                 <div class="col-md-3 col-sm-12 mt-3">
                                     <label for="lum_scheme">Submit Place</label>
-                                    <input class="form-control form-control-sm mt-1" type="text" name="lum_submit" id="lum_submit" value="NSE">
+                                    <input class="form-control form-control-sm mt-1" type="text" name="lum_submit" id="lum_submit" >
                                 </div>
                                 <div class="col-md-3 col-sm-12 mt-3">
                                     <label for="lum_pan_no">Pan No.</label>
-                                    <input class="form-control form-control-sm mt-1" type="text" name="lum_pan_no" id="lum_pan_no" value="CPCT8181J">
+                                    <input class="form-control form-control-sm mt-1" type="text" name="lum_pan_no" id="lum_pan_no">
                                 </div>
                                 <div class="col-md-3 col-sm-12 mt-3">
                                     <label for="lum_folio_no">Folio No.</label>
-                                    <input class="form-control form-control-sm mt-1" type="text" name="lum_folio_no" id="lum_folio_no" value="236541256">
+                                    <input class="form-control form-control-sm mt-1" type="text" name="lum_folio_no" id="lum_folio_no">
                                 </div>
                                 <div class="col-md-3 col-sm-12 mt-3">
                                     <label for="lum_amount">Amount</label>
-                                    <input class="form-control form-control-sm mt-1" type="text" name="lum_amount" id="lum_amount" value="50000">
+                                    <input class="form-control form-control-sm mt-1" type="text" name="lum_amount" id="lum_amount" >
                                 </div>
                                 <div class="col-md-3 col-sm-12 mt-3">
                                     <label for="lum_remark">Remark</label>
                                     <select class="form-select form-select-sm mt-1" name="lum_remark" id="lum_remark" aria-label=".form-select-sm example">
                                         <option  >Choose</option>
                                         <option value="Clear">Clear</option>
-                                        <option value="Blank">Blank</option>
+                                        <option value="Reject">Reject</option>
                                     </select>
 
                                 </div>
@@ -110,12 +110,11 @@ $title = '';
                                     <select class="form-select form-select-sm mt-1" name="lum_done_ok" id="lum_done_ok" aria-label=".form-select-sm example">
                                         <option  >Choose</option>
                                         <option value="OK">Ok</option>
-                                        <option value="Blank">Blank</option>
                                     </select>
                                 </div>
                                 <div class="col-md-3 col-sm-12 mt-3">
                                     <label for="lum_rm_name">RM Name</label>
-                                    <input class="form-control form-control-sm mt-1" type="text" name="lum_rm_name" id="lum_rm_name" value="Alka">
+                                    <input class="form-control form-control-sm mt-1" type="text" name="lum_rm_name" id="lum_rm_name" >
                                 </div>
                                 <div class="col-md-3 col-sm-12 mt-3">
                                     <label for="lum_client_type">Client Type</label>
@@ -136,7 +135,7 @@ $title = '';
                                 </div>
                                 <div class="col-md-3 col-sm-12 mt-3">
                                     <label for="lum_rejection">Rejection</label>
-                                    <input class="form-control form-control-sm mt-1" type="text" name="lum_rejection" id="lum_rejection" value="">
+                                    <input class="form-control form-control-sm mt-1" type="text" name="lum_rejection" id="lum_rejection" >
                                 </div>
                                 <div class="col-md-3 col-sm-12 mt-3">
                                     <label for="lum_after_liquid_fund">After Liquid Fund</label>

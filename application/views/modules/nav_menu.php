@@ -1,5 +1,6 @@
 <?php
 $nav_arr = array('LUMPSUM', 'SIP', 'REDEMPTION', 'SWITCH', 'STP',  'SWP', 'SIP-STOP', 'STP-STOP', 'SWP-STOP', 'COB');
+$image = array('LUMPSUM1.png', 'SIP.png', 'REDEMPTION.png', 'SWITCH.png', 'STP.png',  'SWP.png', 'STOP_SIP.png', 'STOP_STP.png', 'STOP_SWP.png', 'COB.png');
 // echo $_GET['form'];
 ?>
 <div class="container-fluid mt-3">
@@ -14,8 +15,8 @@ $nav_arr = array('LUMPSUM', 'SIP', 'REDEMPTION', 'SWITCH', 'STP',  'SWP', 'SIP-S
                                                                                                                                                                 }
                                                                                                                                                                 ?>>
                 <label class="labling" for="<?php echo $nav_arr[$i] ?>">
-                    <img class="mt-3" src="<?php echo base_url('asset/image/LOGO ICON.png') ?>" alt="" srcset="" style="width: 30px;height:30px">
-                    <p class="mt-3" id=""><?php echo $nav_arr[$i] ?></p>
+                    <img class="mt-3" src="<?php echo base_url('asset/image/'.$image[$i].'') ?>" alt="" srcset="" style="width: 50px;height:50px">
+                    <p class="mt-1" id=""><?php echo $nav_arr[$i] ?></p>
                 </label>
             </div>
         <?php

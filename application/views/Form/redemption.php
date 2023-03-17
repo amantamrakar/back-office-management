@@ -120,7 +120,6 @@ $title = '';
                                 <select class="form-select form-select-sm mt-1" name="redem_done_ok" id="redem_done_ok" aria-label=".form-select-sm example">
                                     <option  >Choose</option>
                                     <option value="Ok">Ok</option>
-                                    <option value="Blank">Blank</option>
                                 </select>
                             </div>
 
@@ -129,7 +128,7 @@ $title = '';
                                 <select class="form-select form-select-sm mt-1" name="redem_remark" id="redem_remark" aria-label=".form-select-sm example">
                                     <option  >Choose</option>
                                     <option value="Clear">Clear</option>
-                                    <option value="Blank">Blank</option>
+                                    <option value="Reject">Reject</option>
                                 </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">

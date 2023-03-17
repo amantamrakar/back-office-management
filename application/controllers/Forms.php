@@ -237,7 +237,7 @@ class Forms extends CI_Controller
 			// 	echo $newDate.'<br>';
 			// }
 			// echo my_arr($excel_data);
-	
+
 			// die();
 
 			$this->UploadExcel->UploadExcelFile($excel_data, $table);
@@ -277,6 +277,35 @@ class Forms extends CI_Controller
 			$this->session->set_userdata($session_data);
 			$this->load->view('modules/nav_bar', $session_data);
 			$this->load->view('show_data/nav', $data);
+		} else {
+			redirect(base_url() . 'admin/index');
+		}
+	}
+
+	public function export_xlsx()
+	{
+		$filename = $this->input->post('key_name');
+		$filename = $filename . '.xlsx';
+		$file_url = base_url().'asset/Excel/'.$filename;
+		header('Content-Type: application/octet-stream');
+		header("Content-Transfer-Encoding: utf-8");
+		header("Content-disposition: attachment; filename=$filename");
+		readfile($file_url);
+		
+	}
+	public function Filteration()
+	{
+		if ($this->session->userdata('id') != '') {
+			$data['page_title'] = 'Filter Data';
+			$session_name = $this->session->userdata('name');
+			$session_id = $this->session->userdata('id');
+			$session_data = array(
+				'session_name' => $session_name,
+				'session_id' => $session_id
+			);
+			$this->session->set_userdata($session_data);
+			$this->load->view('modules/nav_bar', $session_data);
+			$this->load->view('filter_data/index.php', $data);
 		} else {
 			redirect(base_url() . 'admin/index');
 		}

@@ -19,7 +19,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
         </div>
 
         <div class="col-md-3 col-sm-12">
-            <label for="lum_s_no">S.No.</label>
+            <label for="lum_s_no">Count</label>
             <input class="form-control form-control-sm mt-1" type="text" name="lum_s_no" id="lum_s_no" value="<?php echo $get_data[0]['lum_s_no'] ?>">
         </div>
 
@@ -116,9 +116,9 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
                 ?>
                     <option>Choose</option>
                     <option selected value="<?php echo $get_data[0]['lum_remark'] ?>"><?php echo $get_data[0]['lum_remark'] ?></option>
-                    <option value="Blank">Blank</option>
+                    <option value="Reject">Reject</option>
                 <?php
-                } elseif ($get_data[0]['lum_remark'] == "Blank") {
+                } elseif ($get_data[0]['lum_remark'] == "Reject") {
                 ?>
                     <option>Choose</option>
                     <option selected value="<?php echo $get_data[0]['lum_remark'] ?>"><?php echo $get_data[0]['lum_remark'] ?></option>
@@ -129,7 +129,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
                 ?>
                     <option selected>Choose</option>
                     <option value="Clear">Clear</option>
-                    <option value="Blank">Blank</option>
+                    <option value="Reject">Reject</option>
                 <?php
                 }
 
@@ -145,19 +145,12 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
                 ?>
                     <option>Choose</option>
                     <option selected value="<?php echo $get_data[0]['lum_done_ok'] ?>"><?php echo $get_data[0]['lum_done_ok'] ?></option>
-                    <option value="Blank">Blank</option>
+                    <!-- <option value="Blank">Blank</option> -->
                 <?php
-                } elseif ($get_data[0]['lum_done_ok'] == "Blank") {
-                ?>
-                    <option>Choose</option>
-                    <option selected value="<?php echo $get_data[0]['lum_done_ok'] ?>"><?php echo $get_data[0]['lum_done_ok'] ?></option>
-                    <option value="Ok">Ok</option>
-                <?php
-
-                } else {
+                }  else {
                 ?>
                     <option selected>Choose</option>
-                    <option value="Blank">Blank</option>
+                    <!-- <option value="Blank">Blank</option> -->
                     <option value="OK">OK</option>
                 <?php
                 }
@@ -308,7 +301,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
         </div>
         <!-- Sno -->
         <div class="col-md-3 col-sm-12">
-            <label for="sip_s_no">S.No.</label>
+            <label for="sip_s_no">Count</label>
             <input class="form-control form-control-sm mt-1" type="text" name="sip_s_no" id="sip_s_no" value="<?php echo $get_data[0]['sip_s_no'] ?>">
         </div>
         <!-- Month  -->
@@ -419,9 +412,9 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
                 ?>
                     <option>Choose</option>
                     <option selected value="<?php echo $get_data[0]['sip_remark'] ?>"><?php echo $get_data[0]['sip_remark'] ?></option>
-                    <option value="Blank">Blank</option>
+                    <option value="Reject">Reject</option>
                 <?php
-                } elseif ($get_data[0]['sip_remark'] == "Blank") {
+                } elseif ($get_data[0]['sip_remark'] == "Reject") {
                 ?>
                     <option>Choose</option>
                     <option value="Clear">Clear</option>
@@ -431,7 +424,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
                 ?>
                     <option>Choose</option>
                     <option value="Clear">Clear</option>
-                    <option value="Blank">Blank</option>
+                    <option value="Reject">Reject</option>
                 <?php
                 }
 
@@ -450,19 +443,13 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
                 ?>
                     <option>Choose</option>
                     <option selected value="<?php echo $get_data[0]['sip_done_ok'] ?>"><?php echo $get_data[0]['sip_done_ok'] ?></option>
-                    <option value="Blank">Blank</option>
-                <?php
-                } elseif ($get_data[0]['sip_done_ok'] == "Blank") {
-                ?>
-                    <option>Choose</option>
-                    <option value="Ok">Ok</option>
-                    <option selected value="<?php echo $get_data[0]['sip_done_ok'] ?>"><?php echo $get_data[0]['sip_done_ok'] ?></option>
+                    <!-- <option value="Blank">Blank</option> -->
                 <?php
                 } else {
                 ?>
                     <option selected>Choose</option>
                     <option value="Ok">Ok</option>
-                    <option value="Blank">Blank</option>
+                    <!-- <option value="Blank">Blank</option> -->
                 <?php
                 }
 
@@ -601,7 +588,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
         </div>
         <!-- s No  -->
         <div class="col-md-3 col-sm-12">
-            <label for="redem_s_no">S.No.</label>
+            <label for="redem_s_no">Count</label>
             <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['redem_s_no'] ?>" type="text" name="redem_s_no" id="redem_s_no">
         </div>
         <!-- Month  -->
@@ -737,19 +724,13 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
                 ?>
                     <option>Choose</option>
                     <option selected value="<?php echo $get_data[0]['redem_done_ok'] ?>"><?php echo $get_data[0]['redem_done_ok'] ?></option>
-                    <option value="Blank">Blank</option>
+                    <!-- <option value="Blank">Blank</option> -->
                 <?php
-                } elseif ($get_data[0]['redem_done_ok'] == "Blank") {
-                ?>
-                    <option>Choose</option>
-                    <option value="Ok">Ok</option>
-                    <option selected value="<?php echo $get_data[0]['redem_done_ok'] ?>"><?php echo $get_data[0]['redem_done_ok'] ?></option>
-                <?php
-                } else {
+                }  else {
                 ?>
                     <option selected>Choose</option>
                     <option value="Ok">Ok</option>
-                    <option value="Blank">Blank</option>
+                    <!-- <option value="Blank">Blank</option> -->
                 <?php
                 }
 
@@ -768,9 +749,9 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
                 ?>
                     <option>Choose</option>
                     <option selected value="<?php echo $get_data[0]['redem_remark'] ?>"><?php echo $get_data[0]['redem_remark'] ?></option>
-                    <option value="Blank">Blank</option>
+                    <option value="Reject">Reject</option>
                 <?php
-                } elseif ($get_data[0]['redem_remark'] == "Blank") {
+                } elseif ($get_data[0]['redem_remark'] == "Reject") {
                 ?>
                     <option>Choose</option>
                     <option value="Clear">Clear</option>
@@ -780,7 +761,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
                 ?>
                     <option>Choose</option>
                     <option value="Clear">Clear</option>
-                    <option value="Blank">Blank</option>
+                    <option value="Reject">Reject</option>
                 <?php
                 }
 
@@ -809,7 +790,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
         </div>
         <!-- s No  -->
         <div class="col-md-3 col-sm-12">
-            <label for="switch_s_no">S.No.</label>
+            <label for="switch_s_no">Count</label>
             <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['switch_s_no'] ?>" type="text" name="switch_s_no" id="switch_s_no">
         </div>
         <!-- Month  -->
@@ -958,19 +939,13 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
                 ?>
                     <option>Choose</option>
                     <option selected value="<?php echo $get_data[0]['switch_done_ok'] ?>"><?php echo $get_data[0]['switch_done_ok'] ?></option>
-                    <option value="Blank">Blank</option>
-                <?php
-                } elseif ($get_data[0]['switch_done_ok'] == "Blank") {
-                ?>
-                    <option>Choose</option>
-                    <option value="Ok">Ok</option>
-                    <option selected value="<?php echo $get_data[0]['switch_done_ok'] ?>"><?php echo $get_data[0]['switch_done_ok'] ?></option>
+                    <!-- <option value="Blank">Blank</option> -->
                 <?php
                 } else {
                 ?>
                     <option selected>Choose</option>
                     <option value="Ok">Ok</option>
-                    <option value="Blank">Blank</option>
+                    <!-- <option value="Blank">Blank</option> -->
                 <?php
                 }
 
@@ -989,9 +964,9 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
                 ?>
                     <option>Choose</option>
                     <option selected value="<?php echo $get_data[0]['switch_remark'] ?>"><?php echo $get_data[0]['switch_remark'] ?></option>
-                    <option value="Blank">Blank</option>
+                    <option value="Reject">Reject</option>
                 <?php
-                } elseif ($get_data[0]['switch_remark'] == "Blank") {
+                } elseif ($get_data[0]['switch_remark'] == "Reject") {
                 ?>
                     <option>Choose</option>
                     <option value="Clear">Clear</option>
@@ -1001,7 +976,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
                 ?>
                     <option>Choose</option>
                     <option value="Clear">Clear</option>
-                    <option value="Blank">Blank</option>
+                    <option value="Reject">Reject</option>
                 <?php
                 }
 
@@ -1025,7 +1000,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
         </div>
         <!-- s No  -->
         <div class="col-md-3 col-sm-12">
-            <label for="stp_s_no">S.No.</label>
+            <label for="stp_s_no">Count</label>
             <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['stp_s_no'] ?>" type="text" name="stp_s_no" id="stp_s_no">
         </div>
         <!-- Month  -->
@@ -1162,19 +1137,13 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
                 ?>
                     <option>Choose</option>
                     <option selected value="<?php echo $get_data[0]['stp_done_ok'] ?>"><?php echo $get_data[0]['stp_done_ok'] ?></option>
-                    <option value="Blank">Blank</option>
-                <?php
-                } elseif ($get_data[0]['stp_done_ok'] == "Blank") {
-                ?>
-                    <option>Choose</option>
-                    <option value="Ok">Ok</option>
-                    <option selected value="<?php echo $get_data[0]['stp_done_ok'] ?>"><?php echo $get_data[0]['stp_done_ok'] ?></option>
+                    <!-- <option value="Blank">Blank</option> -->
                 <?php
                 } else {
                 ?>
                     <option selected>Choose</option>
                     <option value="Ok">Ok</option>
-                    <option value="Blank">Blank</option>
+                    <!-- <option value="Blank">Blank</option> -->
                 <?php
                 }
 
@@ -1204,8 +1173,8 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
                 } else {
                 ?>
                     <option>Choose</option>
-                    <option value="Clear">Clear</option>
-                    <option value="Blank">Blank</option>
+                    <option value="Weekly">Weekly</option>
+                    <option value="Monthly">Monthly</option>
                 <?php
                 }
 
@@ -1265,7 +1234,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
         </div>
         <!-- s No  -->
         <div class="col-md-3 col-sm-12">
-            <label for="swp_s_no">S.No.</label>
+            <label for="swp_s_no">Count</label>
             <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['swp_s_no'] ?>" type="text" name="swp_s_no" id="swp_s_no">
         </div>
         <!-- Month  -->
@@ -1360,19 +1329,13 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
                 ?>
                     <option>Choose</option>
                     <option selected value="<?php echo $get_data[0]['swp_done_ok'] ?>"><?php echo $get_data[0]['swp_done_ok'] ?></option>
-                    <option value="Blank">Blank</option>
-                <?php
-                } elseif ($get_data[0]['swp_done_ok'] == "Blank") {
-                ?>
-                    <option>Choose</option>
-                    <option value="Ok">Ok</option>
-                    <option selected value="<?php echo $get_data[0]['swp_done_ok'] ?>"><?php echo $get_data[0]['swp_done_ok'] ?></option>
+                    <!-- <option value="Blank">Blank</option> -->
                 <?php
                 } else {
                 ?>
                     <option selected>Choose</option>
                     <option value="Ok">Ok</option>
-                    <option value="Blank">Blank</option>
+                    <!-- <option value="Blank">Blank</option> -->
                 <?php
                 }
 
@@ -1399,8 +1362,8 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
         </div>
         <!-- No head  -->
         <div class="col-md-3 col-sm-12 mt-3">
-            <label for="swp_no_head">No Head</label>
-            <select class="form-select form-select-sm mt-1" name="swp_no_head" id="swp_no_head" aria-label=".form-select-sm example">
+            <label for="swp_rm_name">No Head</label>
+            <select class="form-select form-select-sm mt-1" name="swp_rm_name" id="swp_rm_name" aria-label=".form-select-sm example">
                 <!-- <option>Choose</option>
                 <option value="NG">NG</option>
                 <option value="AJ">AJ</option> -->
@@ -1446,7 +1409,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
         </div>
         <!-- s No  -->
         <div class="col-md-3 col-sm-12">
-            <label for="sip_stop_s_no">S.No.</label>
+            <label for="sip_stop_s_no">Count</label>
             <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['sip_stop_s_no'] ?>" type="text" name="sip_stop_s_no" id="sip_stop_s_no">
         </div>
         <!-- Month  -->
@@ -1551,19 +1514,13 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
                 ?>
                     <option>Choose</option>
                     <option selected value="<?php echo $get_data[0]['sip_stop_done_ok'] ?>"><?php echo $get_data[0]['sip_stop_done_ok'] ?></option>
-                    <option value="Blank">Blank</option>
+                    <!-- <option value="Blank">Blank</option> -->
                 <?php
-                } elseif ($get_data[0]['sip_stop_done_ok'] == "Blank") {
-                ?>
-                    <option>Choose</option>
-                    <option value="Ok">Ok</option>
-                    <option selected value="<?php echo $get_data[0]['sip_stop_done_ok'] ?>"><?php echo $get_data[0]['sip_stop_done_ok'] ?></option>
-                <?php
-                } else {
+                }  else {
                 ?>
                     <option selected>Choose</option>
                     <option value="Ok">Ok</option>
-                    <option value="Blank">Blank</option>
+                    <!-- <option value="Blank">Blank</option> -->
                 <?php
                 }
 
@@ -1604,7 +1561,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
         </div>
         <!-- s No  -->
         <div class="col-md-3 col-sm-12">
-            <label for="stp_stop_s_no">S.No.</label>
+            <label for="stp_stop_s_no">Count</label>
             <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['stp_stop_s_no'] ?>" type="text" name="stp_stop_s_no" id="stp_stop_s_no">
         </div>
         <!-- Month  -->
@@ -1736,19 +1693,13 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
                 ?>
                     <option>Choose</option>
                     <option selected value="<?php echo $get_data[0]['stp_stop_done_ok'] ?>"><?php echo $get_data[0]['stp_stop_done_ok'] ?></option>
-                    <option value="Blank">Blank</option>
+                    <!-- <option value="Blank">Blank</option> -->
                 <?php
-                } elseif ($get_data[0]['stp_stop_done_ok'] == "Blank") {
-                ?>
-                    <option>Choose</option>
-                    <option value="Ok">Ok</option>
-                    <option selected value="<?php echo $get_data[0]['stp_stop_done_ok'] ?>"><?php echo $get_data[0]['stp_stop_done_ok'] ?></option>
-                <?php
-                } else {
+                }else {
                 ?>
                     <option selected>Choose</option>
                     <option value="Ok">Ok</option>
-                    <option value="Blank">Blank</option>
+                    <!-- <option value="Blank">Blank</option> -->
                 <?php
                 }
 
@@ -1779,7 +1730,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
         </div>
         <!-- s No  -->
         <div class="col-md-3 col-sm-12">
-            <label for="swp_stop_s_no">S.No.</label>
+            <label for="swp_stop_s_no">Count</label>
             <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['swp_stop_s_no'] ?>" type="text" name="swp_stop_s_no" id="swp_stop_s_no">
         </div>
         <!-- Month  -->
@@ -1874,19 +1825,13 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
                 ?>
                     <option>Choose</option>
                     <option selected value="<?php echo $get_data[0]['swp_stop_done_ok'] ?>"><?php echo $get_data[0]['swp_stop_done_ok'] ?></option>
-                    <option value="Blank">Blank</option>
-                <?php
-                } elseif ($get_data[0]['swp_stop_done_ok'] == "Blank") {
-                ?>
-                    <option>Choose</option>
-                    <option value="OK">Ok</option>
-                    <option selected value="<?php echo $get_data[0]['swp_stop_done_ok'] ?>"><?php echo $get_data[0]['swp_stop_done_ok'] ?></option>
+                    <!-- <option value="Blank">Blank</option> -->
                 <?php
                 } else {
                 ?>
                     <option selected>Choose</option>
                     <option value="OK">Ok</option>
-                    <option value="Blank">Blank</option>
+                    <!-- <option value="Blank">Blank</option> -->
                 <?php
                 }
 
@@ -1917,7 +1862,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
         </div>
         <!-- s No  -->
         <div class="col-md-3 col-sm-12">
-            <label for="cob_s_no">S.No.</label>
+            <label for="cob_s_no">Count</label>
             <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['cob_s_no'] ?>" type="text" name="cob_s_no" id="cob_s_no">
         </div>
         <!-- COB Mode  -->
@@ -2017,19 +1962,13 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
                 ?>
                     <option>Choose</option>
                     <option selected value="<?php echo $get_data[0]['cob_done_ok'] ?>"><?php echo $get_data[0]['cob_done_ok'] ?></option>
-                    <option value="Blank">Blank</option>
-                <?php
-                } elseif ($get_data[0]['cob_done_ok'] == "Blank") {
-                ?>
-                    <option>Choose</option>
-                    <option value="Ok">Ok</option>
-                    <option selected value="<?php echo $get_data[0]['cob_done_ok'] ?>"><?php echo $get_data[0]['cob_done_ok'] ?></option>
+                    <!-- <option value="Blank">Blank</option> -->
                 <?php
                 } else {
                 ?>
                     <option selected>Choose</option>
                     <option value="Ok">Ok</option>
-                    <option value="Blank">Blank</option>
+                    <!-- <option value="Blank">Blank</option> -->
                 <?php
                 }
 

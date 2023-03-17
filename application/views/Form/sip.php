@@ -103,7 +103,7 @@ $title = '';
                                 <select class="form-select form-select-sm mt-1" name="sip_remark" id="sip_remark" aria-label=".form-select-sm example">
                                     <option>Choose</option>
                                     <option value="Clear">Clear</option>
-                                    <option value="Blank">Blank</option>
+                                    <option value="Reject">Reject</option>
                                 </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
@@ -111,7 +111,6 @@ $title = '';
                                 <select class="form-select form-select-sm mt-1" name="sip_done_ok" id="sip_done_ok" aria-label=".form-select-sm example">
                                     <option selected>Choose</option>
                                     <option value="OK">Ok</option>
-                                    <option value="Blank">Blank</option>
                                 </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">

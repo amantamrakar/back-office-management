@@ -64,16 +64,16 @@ $title = '';
                 <div class="card-body">
                     <h3 class="text-center">Download Excel Formate</h3>
                     <div class="container text-center">
-                        <!-- <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="cob">COB</button>
-                        <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="lum"> Lumpsum </button>
-                        <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="red"> Reduption </button>
-                        <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="sip"> SIP </button>
-                        <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="sip_stop"> SIP-Stop </button>
-                        <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="stp"> STP </button>
-                        <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="stp_stop"> STP-Stop </button>
-                        <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="switch"> Switch </button>
-                        <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="swp"> SWP </button>
-                        <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="swp_stop"> SWP-Stop </button> -->
+                        <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="COB">COB</button>
+                        <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="Lumpsum">Lumpsum </button>
+                        <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="Redemption"> Redemption </button>
+                        <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="SIP"> SIP </button>
+                        <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="SIP-Stop "> SIP-Stop </button>
+                        <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="STP"> STP </button>
+                        <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="STP-Stop"> STP-Stop </button>
+                        <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="Switch"> Switch </button>
+                        <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="SWP"> SWP </button>
+                        <button class="btn btn-success btn-sm mx-1 my-1 download_excel" data-filename="SWP-Stop"> SWP-Stop </button>
                     </div>
 
                 </div>
@@ -104,15 +104,14 @@ $title = '';
         })
         $(".download_excel").on("click", function() {
             var name = $(this).data("filename");
-            // console.log(name);
             $.ajax({
-                url: "index.php",
+                url: "<?php echo base_url() . 'Forms/export_xlsx' ?>",
                 type: "POST",
                 data: {
                     key_name: name,
                 },
                 success: function(data) {
-
+                    
                 }
             })
 

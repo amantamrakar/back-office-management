@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-3 col-sm-4 p-2 img_center">
                 <a class="navbar-brand " href="#">
-                    <img src="<?php echo base_url('asset\image\SWARAJ FINPRO NEW LOGO 1.png') ?>" alt="Bootstrap" width="280" height="65">
+                    <img src="<?php echo base_url('asset\image\SWARAJ FINPRO NEW LOGO 1.png') ?>" alt="Bootstrap" width="280" height="72">
                 </a>
             </div>
             <div class="col-md-5 col-sm-4 "></div>
