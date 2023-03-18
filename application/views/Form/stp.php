@@ -33,10 +33,10 @@ $title = '';
                     <?php
                     $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'Decemeber');
                     ?>
-                    <form action="" id="<?php echo $data.'Form' ?>">
+                    <form action="" id="<?php echo $data . 'Form' ?>">
 
                         <div class="row">
-                        <input class="form-control form-control-sm mt-1" type="text" name="YmFzZTY0IGRlY29kZXI=" value="<?php echo base64_encode($data) ?>" id="" hidden>
+                            <input class="form-control form-control-sm mt-1" type="text" name="YmFzZTY0IGRlY29kZXI=" value="<?php echo base64_encode($data) ?>" id="" hidden>
                             <div class="col-md-3 col-sm-12">
                                 <label for="stp_date">Date</label>
                                 <input class="form-control form-control-sm mt-1" type="date" name="stp_date" id="stp_date">
@@ -48,7 +48,7 @@ $title = '';
                             <div class="col-md-3 col-sm-12">
                                 <label for="stp_month">Month</label>
                                 <select class="form-select form-select-sm mt-1" name="stp_month" id="stp_month" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <?php
                                     for ($i = 0; $i < count($month); $i++) { ?>
                                         <option value="<?php echo $month[$i] ?>"><?php echo $month[$i] ?></option>
@@ -61,7 +61,7 @@ $title = '';
                             <div class="col-md-3 col-sm-12">
                                 <label for="stp_of_on">On/Off</label>
                                 <select class="form-select form-select-sm mt-1" name="stp_of_on" id="stp_of_on" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <option value="ON">ON</option>
                                     <option value="OFF">OFF</option>
                                 </select>
@@ -78,7 +78,7 @@ $title = '';
                                 <label for="stp_l_e">L2E</label>
                                 <?php $l_e_arr = array('L2E', 'E2E') ?>
                                 <select class="form-select form-select-sm mt-1" name="stp_l_e" id="stp_l_e" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <?php
                                     for ($i = 0; $i < count($l_e_arr); $i++) { ?>
                                         <option value="<?php echo $l_e_arr[$i] ?>"><?php echo $l_e_arr[$i] ?></option>
@@ -119,19 +119,21 @@ $title = '';
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="stp_remark">Remark</label>
                                 <select class="form-select form-select-sm mt-1" name="stp_remark" id="stp_remark" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <option value="Weekly">Weekly</option>
                                     <option value="Monthly">Monthly</option>
+                                    <option value="Quaterly">Quaterly</option>
+                                    <option value="Reject">Reject</option>
                                 </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="stp_done_ok">Ok</label>
                                 <select class="form-select form-select-sm mt-1" name="stp_done_ok" id="stp_done_ok" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <option value="Ok">Ok</option>
                                 </select>
                             </div>
-                                    
+
 
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="stp_rm_name">RM Name</label>
@@ -140,16 +142,20 @@ $title = '';
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="stp_comp_continue">Complete / Continue</label>
                                 <select class="form-select form-select-sm mt-1" name="stp_comp_continue" id="stp_comp_continue" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <option value="COMPLETE">Complete</option>
                                     <option value="CONTINUE">Continue</option>
                                 </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
+                                <label for="stp_other_info">STP Other Info</label>
+                                <input class="form-control form-control-sm mt-1"  type="text" name="stp_other_info" id="stp_other_info">
+                            </div>
+                            <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="stp_stp_type">STP Type</label>
                                 <input class="form-control form-control-sm mt-1" type="text" name="stp_stp_type" id="stp_stp_type">
                             </div>
-                        
+
 
 
                         </div>

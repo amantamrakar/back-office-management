@@ -11,7 +11,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
 
     if ($title == 'LUMPSUM') {
         // echo my_arr($get_data);
-     ?>
+    ?>
 
         <div class="col-md-3 col-sm-12">
             <label for="lum_date">Date</label>
@@ -19,7 +19,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
         </div>
 
         <div class="col-md-3 col-sm-12">
-            <label for="lum_s_no">Count</label>
+            <label for="lum_s_no">S.No.</label>
             <input class="form-control form-control-sm mt-1" type="text" name="lum_s_no" id="lum_s_no" value="<?php echo $get_data[0]['lum_s_no'] ?>">
         </div>
 
@@ -147,7 +147,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
                     <option selected value="<?php echo $get_data[0]['lum_done_ok'] ?>"><?php echo $get_data[0]['lum_done_ok'] ?></option>
                     <!-- <option value="Blank">Blank</option> -->
                 <?php
-                }  else {
+                } else {
                 ?>
                     <option selected>Choose</option>
                     <!-- <option value="Blank">Blank</option> -->
@@ -293,7 +293,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
     } elseif ($title == 'SIP') {
         // echo my_arr($get_data);
 
-     ?>
+    ?>
         <!-- Date  -->
         <div class="col-md-3 col-sm-12">
             <label for="sip_date">Date</label>
@@ -301,7 +301,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
         </div>
         <!-- Sno -->
         <div class="col-md-3 col-sm-12">
-            <label for="sip_s_no">Count</label>
+            <label for="sip_s_no">S.No.</label>
             <input class="form-control form-control-sm mt-1" type="text" name="sip_s_no" id="sip_s_no" value="<?php echo $get_data[0]['sip_s_no'] ?>">
         </div>
         <!-- Month  -->
@@ -580,7 +580,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
     <?php
     } elseif ($title == 'REDEMPTION') {
 
-     ?>
+    ?>
         <!-- date  -->
         <div class="col-md-3 col-sm-12">
             <label for="redem_date">Date</label>
@@ -588,7 +588,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
         </div>
         <!-- s No  -->
         <div class="col-md-3 col-sm-12">
-            <label for="redem_s_no">Count</label>
+            <label for="redem_s_no">S.No.</label>
             <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['redem_s_no'] ?>" type="text" name="redem_s_no" id="redem_s_no">
         </div>
         <!-- Month  -->
@@ -726,7 +726,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
                     <option selected value="<?php echo $get_data[0]['redem_done_ok'] ?>"><?php echo $get_data[0]['redem_done_ok'] ?></option>
                     <!-- <option value="Blank">Blank</option> -->
                 <?php
-                }  else {
+                } else {
                 ?>
                     <option selected>Choose</option>
                     <option value="Ok">Ok</option>
@@ -782,7 +782,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
     } elseif ($title == 'SWITCH') {
         // echo my_arr($get_data);
 
-      ?>
+    ?>
         <!-- date  -->
         <div class="col-md-3 col-sm-12">
             <label for="switch_date">Date</label>
@@ -790,7 +790,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
         </div>
         <!-- s No  -->
         <div class="col-md-3 col-sm-12">
-            <label for="switch_s_no">Count</label>
+            <label for="switch_s_no">S.No.</label>
             <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['switch_s_no'] ?>" type="text" name="switch_s_no" id="switch_s_no">
         </div>
         <!-- Month  -->
@@ -992,7 +992,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
     } elseif ($title == 'STP') {
         // echo my_arr($get_data);
 
-     ?>
+    ?>
         <!-- date  -->
         <div class="col-md-3 col-sm-12">
             <label for="stp_date">Date</label>
@@ -1000,7 +1000,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
         </div>
         <!-- s No  -->
         <div class="col-md-3 col-sm-12">
-            <label for="stp_s_no">Count</label>
+            <label for="stp_s_no">S.No.</label>
             <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['stp_s_no'] ?>" type="text" name="stp_s_no" id="stp_s_no">
         </div>
         <!-- Month  -->
@@ -1160,21 +1160,43 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
                 <?php
                 if ($get_data[0]['stp_remark'] == "Weekly") {
                 ?>
-                    <option>Choose</option>
+                    <option value="">choose</option>
                     <option selected value="<?php echo $get_data[0]['stp_remark'] ?>"><?php echo $get_data[0]['stp_remark'] ?></option>
                     <option value="Monthly">Monthly</option>
+                    <option value="Quaterly">Quaterly</option>
+                    <option value="Reject">Reject</option>
                 <?php
                 } elseif ($get_data[0]['stp_remark'] == "Monthly") {
                 ?>
-                    <option>Choose</option>
-                    <option value="Weekly">Weekly</option>
+                    <option value="">choose</option>
                     <option selected value="<?php echo $get_data[0]['stp_remark'] ?>"><?php echo $get_data[0]['stp_remark'] ?></option>
+                    <option value="Weekly">Weekly</option>
+                    <option value="Quaterly">Quaterly</option>
+                    <option value="Reject">Reject</option>
+                <?php
+                } elseif ($get_data[0]['stp_remark'] == "Quaterly") {
+                ?>
+                    <option value="">choose</option>
+                    <option selected value="<?php echo $get_data[0]['stp_remark'] ?>"><?php echo $get_data[0]['stp_remark'] ?></option>
+                    <option value="Weekly">Weekly</option>
+                    <option value="Monthly">Monthly</option>
+                    <option value="Reject">Reject</option>
+                <?php
+                } elseif ($get_data[0]['stp_remark'] == "Reject") {
+                ?>
+                    <option value="">choose</option>
+                    <option selected value="<?php echo $get_data[0]['stp_remark'] ?>"><?php echo $get_data[0]['stp_remark'] ?></option>
+                    <option value="Weekly">Weekly</option>
+                    <option value="Monthly">Monthly</option>
+                    <option value="Quaterly">Quaterly</option>
                 <?php
                 } else {
                 ?>
-                    <option>Choose</option>
+                    <option value="">choose</option>
                     <option value="Weekly">Weekly</option>
                     <option value="Monthly">Monthly</option>
+                    <option value="Quaterly">Quaterly</option>
+                    <option value="Reject">Reject</option>
                 <?php
                 }
 
@@ -1217,6 +1239,11 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
                 ?>
             </select>
         </div>
+        <!-- STP other  -->
+        <div class="col-md-3 col-sm-12 mt-3">
+            <label for="stp_other_info">STP Other Info</label>
+            <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['stp_other_info'] ?>" type="text" name="stp_other_info" id="stp_other_info">
+        </div>
         <!-- STP Type  -->
         <div class="col-md-3 col-sm-12 mt-3">
             <label for="stp_stp_type">STP Type</label>
@@ -1226,7 +1253,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
     } elseif ($title == 'SWP') {
         // echo my_arr($get_data);
 
-     ?>
+    ?>
         <!-- date  -->
         <div class="col-md-3 col-sm-12">
             <label for="swp_date">Date</label>
@@ -1234,7 +1261,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
         </div>
         <!-- s No  -->
         <div class="col-md-3 col-sm-12">
-            <label for="swp_s_no">Count</label>
+            <label for="swp_s_no">S.No.</label>
             <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['swp_s_no'] ?>" type="text" name="swp_s_no" id="swp_s_no">
         </div>
         <!-- Month  -->
@@ -1354,10 +1381,57 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
         </div>
         <!-- Duration  -->
         <div class="col-md-3 col-sm-12 mt-3">
-            <label for="swp_duration">Duration</label>
+            <label for="swp_duration">Duration/Remark</label>
             <select class="form-select form-select-sm mt-1" name="swp_duration" id="swp_duration" aria-label=".form-select-sm example">
-                <option>Choose</option>
-                <option selected value="Monthly">Monthly</option>
+                <?php
+                if ($get_data[0]['stp_remark'] == "Weekly") {
+                ?>
+                    <option>Choose</option>
+                    <option selected value="<?php echo $get_data[0]['stp_remark'] ?>"><?php echo $get_data[0]['stp_remark'] ?></option>
+                    <option value="Monthly">Monthly</option>
+                    <option value="Quaterly">Quaterly</option>
+                    <option value="">choose</option>
+                    <option value="Reject">Reject</option>
+                <?php
+                } elseif ($get_data[0]['stp_remark'] == "Monthly") {
+                ?>
+                    <option>Choose</option>
+                    <option selected value="<?php echo $get_data[0]['stp_remark'] ?>"><?php echo $get_data[0]['stp_remark'] ?></option>
+                    <option value="Weekly">Weekly</option>
+                    <option value="Quaterly">Quaterly</option>
+                    <option value="Reject">Reject</option>
+                    <option value="">choose</option>
+                <?php
+                } elseif ($get_data[0]['stp_remark'] == "Quaterly") {
+                ?>
+                    <option>Choose</option>
+                    <option selected value="<?php echo $get_data[0]['stp_remark'] ?>"><?php echo $get_data[0]['stp_remark'] ?></option>
+                    <option value="Weekly">Weekly</option>
+                    <option value="Monthly">Monthly</option>
+                    <option value="Reject">Reject</option>
+                    <option value="">choose</option>
+                <?php
+                } elseif ($get_data[0]['stp_remark'] == "Reject") {
+                ?>
+                    <option>Choose</option>
+                    <option selected value="<?php echo $get_data[0]['stp_remark'] ?>"><?php echo $get_data[0]['stp_remark'] ?></option>
+                    <option value="Weekly">Weekly</option>
+                    <option value="Monthly">Monthly</option>
+                    <option value="Quaterly">Quaterly</option>
+                    <option value="">choose</option>
+                <?php
+                } else {
+                ?>
+                    <option>Choose</option>
+                    <option value="">choose</option>
+                    <option value="Weekly">Weekly</option>
+                    <option value="Monthly">Monthly</option>
+                    <option value="Quaterly">Quaterly</option>
+                    <option value="Reject">Reject</option>
+                <?php
+                }
+
+                ?>
             </select>
         </div>
         <!-- No head  -->
@@ -1398,18 +1472,18 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
         </div>
 
     <?php
-    } elseif ($title == 'SIP-STOP') {    
+    } elseif ($title == 'SIP-STOP') {
         // echo my_arr($get_data);
 
-     ?>
-         <!-- date  -->
+    ?>
+        <!-- date  -->
         <div class="col-md-3 col-sm-12">
             <label for="sip_stop_date">Date</label>
             <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['sip_stop_date'] ?>" type="date" name="sip_stop_date" id="sip_stop_date">
         </div>
         <!-- s No  -->
         <div class="col-md-3 col-sm-12">
-            <label for="sip_stop_s_no">Count</label>
+            <label for="sip_stop_s_no">S.No.</label>
             <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['sip_stop_s_no'] ?>" type="text" name="sip_stop_s_no" id="sip_stop_s_no">
         </div>
         <!-- Month  -->
@@ -1516,11 +1590,39 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
                     <option selected value="<?php echo $get_data[0]['sip_stop_done_ok'] ?>"><?php echo $get_data[0]['sip_stop_done_ok'] ?></option>
                     <!-- <option value="Blank">Blank</option> -->
                 <?php
-                }  else {
+                } else {
                 ?>
                     <option selected>Choose</option>
                     <option value="Ok">Ok</option>
                     <!-- <option value="Blank">Blank</option> -->
+                <?php
+                }
+
+                ?>
+            </select>
+        </div>
+        <div class="col-md-3 col-sm-12 mt-3">
+            <label for="sip_stop_remark">Remark</label>
+            <select class="form-select form-select-sm mt-1" name="sip_stop_remark" id="sip_stop_remark" aria-label=".form-select-sm example">
+                <?php
+                if ($get_data[0]['sip_stop_remark'] == "Clear") {
+                ?>
+                    <option>Choose</option>
+                    <option selected value="<?php echo $get_data[0]['sip_stop_remark'] ?>"><?php echo $get_data[0]['sip_stop_remark'] ?></option>
+                    <option value="Reject">Reject</option>
+                <?php
+                } elseif ($get_data[0]['sip_stop_remark'] == "Reject") {
+                ?>
+                    <option>Choose</option>
+                    <option selected value="<?php echo $get_data[0]['sip_stop_remark'] ?>"><?php echo $get_data[0]['sip_stop_remark'] ?></option>
+                    <option value="Clear">Clear</option>
+                <?php
+
+                } else {
+                ?>
+                    <option selected>Choose</option>
+                    <option value="Clear">Clear</option>
+                    <option value="Reject">Reject</option>
                 <?php
                 }
 
@@ -1553,7 +1655,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
     } elseif ($title == 'STP-STOP') {
         // echo my_arr($get_data);
 
-     ?>
+    ?>
         <!-- date  -->
         <div class="col-md-3 col-sm-12">
             <label for="stp_stop_date">Date</label>
@@ -1561,7 +1663,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
         </div>
         <!-- s No  -->
         <div class="col-md-3 col-sm-12">
-            <label for="stp_stop_s_no">Count</label>
+            <label for="stp_stop_s_no">S.No.</label>
             <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['stp_stop_s_no'] ?>" type="text" name="stp_stop_s_no" id="stp_stop_s_no">
         </div>
         <!-- Month  -->
@@ -1676,10 +1778,38 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
             <label for="stp_stop_amount">Amount</label>
             <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['stp_stop_amount'] ?>" type="text" name="stp_stop_amount" id="stp_stop_amount">
         </div>
+        <div class="col-md-3 col-sm-12 mt-3">
+            <label for="stp_stop_remark">Remark</label>
+            <select class="form-select form-select-sm mt-1" name="stp_stop_remark" id="stp_stop_remark" aria-label=".form-select-sm example">
+                <?php
+                if ($get_data[0]['stp_stop_remark'] == "Clear") {
+                ?>
+                    <option>Choose</option>
+                    <option selected value="<?php echo $get_data[0]['stp_stop_remark'] ?>"><?php echo $get_data[0]['stp_stop_remark'] ?></option>
+                    <option value="Reject">Reject</option>
+                <?php
+                } elseif ($get_data[0]['stp_stop_remark'] == "Reject") {
+                ?>
+                    <option>Choose</option>
+                    <option selected value="<?php echo $get_data[0]['stp_stop_remark'] ?>"><?php echo $get_data[0]['stp_stop_remark'] ?></option>
+                    <option value="Clear">Clear</option>
+                <?php
+
+                } else {
+                ?>
+                    <option selected>Choose</option>
+                    <option value="Clear">Clear</option>
+                    <option value="Reject">Reject</option>
+                <?php
+                }
+
+                ?>
+            </select>
+        </div>
         <!-- Remark  -->
         <div class="col-md-3 col-sm-12 mt-3">
-            <label for="stp_stop_remark">Remark </label>
-            <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['stp_stop_remark'] ?>" type="text" name="stp_stop_remark" id="stp_stop_remark">
+            <label for="stp_stop_remark_reason">Remark Reason </label>
+            <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['stp_stop_remark_reason'] ?>" type="text" name="stp_stop_remark_reason" id="stp_stop_remark">
         </div>
         <!-- ok  -->
         <div class="col-md-3 col-sm-12 mt-3">
@@ -1695,7 +1825,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
                     <option selected value="<?php echo $get_data[0]['stp_stop_done_ok'] ?>"><?php echo $get_data[0]['stp_stop_done_ok'] ?></option>
                     <!-- <option value="Blank">Blank</option> -->
                 <?php
-                }else {
+                } else {
                 ?>
                     <option selected>Choose</option>
                     <option value="Ok">Ok</option>
@@ -1719,10 +1849,10 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
 
 
     <?php
-    } elseif ($title == 'SWP-STOP') {   
+    } elseif ($title == 'SWP-STOP') {
         // echo my_arr($get_data);
 
-     ?>
+    ?>
         <!-- date  -->
         <div class="col-md-3 col-sm-12">
             <label for="swp_stop_date">Date</label>
@@ -1730,7 +1860,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
         </div>
         <!-- s No  -->
         <div class="col-md-3 col-sm-12">
-            <label for="swp_stop_s_no">Count</label>
+            <label for="swp_stop_s_no">S.No.</label>
             <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['swp_stop_s_no'] ?>" type="text" name="swp_stop_s_no" id="swp_stop_s_no">
         </div>
         <!-- Month  -->
@@ -1838,6 +1968,34 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
                 ?>
             </select>
         </div>
+        <div class="col-md-3 col-sm-12 mt-3">
+            <label for="swp_stop_remark">Remark</label>
+            <select class="form-select form-select-sm mt-1" name="swp_stop_remark" id="swp_stop_remark" aria-label=".form-select-sm example">
+                <?php
+                if ($get_data[0]['swp_stop_remark'] == "Clear") {
+                ?>
+                    <option>Choose</option>
+                    <option selected value="<?php echo $get_data[0]['swp_stop_remark'] ?>"><?php echo $get_data[0]['swp_stop_remark'] ?></option>
+                    <option value="Reject">Reject</option>
+                <?php
+                } elseif ($get_data[0]['swp_stop_remark'] == "Reject") {
+                ?>
+                    <option>Choose</option>
+                    <option selected value="<?php echo $get_data[0]['swp_stop_remark'] ?>"><?php echo $get_data[0]['swp_stop_remark'] ?></option>
+                    <option value="Clear">Clear</option>
+                <?php
+
+                } else {
+                ?>
+                    <option selected>Choose</option>
+                    <option value="Clear">Clear</option>
+                    <option value="Reject">Reject</option>
+                <?php
+                }
+
+                ?>
+            </select>
+        </div>
         <!-- Stop data  -->
         <div class="col-md-3 col-sm-12 mt-3">
             <label for="swp_stop_stop_date">Stop Date </label>
@@ -1862,7 +2020,7 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
         </div>
         <!-- s No  -->
         <div class="col-md-3 col-sm-12">
-            <label for="cob_s_no">Count</label>
+            <label for="cob_s_no">S.No.</label>
             <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['cob_s_no'] ?>" type="text" name="cob_s_no" id="cob_s_no">
         </div>
         <!-- COB Mode  -->
@@ -1947,8 +2105,32 @@ $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
         </div>
         <!-- Remark  -->
         <div class="col-md-3 col-sm-12 mt-3">
-            <label for="cob_remark">Remark </label>
-            <input class="form-control form-control-sm mt-1" value="<?php echo $get_data[0]['cob_remark'] ?>" type="text" name="cob_remark" id="cob_remark">
+            <label for="cob_remark">Remark</label>
+            <select class="form-select form-select-sm mt-1" name="cob_remark" id="cob_remark" aria-label=".form-select-sm example">
+                <?php
+                if ($get_data[0]['cob_remark'] == "Clear") {
+                ?>
+                    <option>Choose</option>
+                    <option selected value="<?php echo $get_data[0]['cob_remark'] ?>"><?php echo $get_data[0]['cob_remark'] ?></option>
+                    <option value="Reject">Reject</option>
+                <?php
+                } elseif ($get_data[0]['cob_remark'] == "Reject") {
+                ?>
+                    <option>Choose</option>
+                    <option selected value="<?php echo $get_data[0]['cob_remark'] ?>"><?php echo $get_data[0]['cob_remark'] ?></option>
+                    <option value="Clear">Clear</option>
+                <?php
+
+                } else {
+                ?>
+                    <option selected>Choose</option>
+                    <option value="Clear">Clear</option>
+                    <option value="Reject">Reject</option>
+                <?php
+                }
+
+                ?>
+            </select>
         </div>
         <!-- ok  -->
         <div class="col-md-3 col-sm-12 mt-3">

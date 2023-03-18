@@ -37,43 +37,11 @@ class Functionality_model extends CI_Model
         $query =  $this->db->update($table_name, $data);
         return $query;
     }
-    // public function check_reject($table_name, $id)
-    // {
-    //     $reject = '';
-    //     if ($table_name == 'LUMPSUM') {
-    //         $reject =  'lum_rejection';
-    //     } elseif ($table_name == 'SIP') {
-    //         $reject = 'sip_remark_content';
-    //     } elseif ($table_name == 'REDEMPTION') {
-    //         $reject =  'redem_reason_rejection';
-    //     } elseif ($table_name == 'SWITCH') {
-    //         $reject = '';
-    //     } elseif ($table_name == 'STP') {
-    //         $reject = '';
-    //     } elseif ($table_name == 'SWP') {
-    //         $reject = '';
-    //     } elseif ($table_name == 'COB') {
-    //         $reject = 'cob_remark';
-    //     } elseif ($table_name == 'SIP-STOP') {
-    //         $reject =  '';
-    //     } elseif ($table_name == 'STP-STOP') {
-    //         $reject = '';
-    //     } elseif ($table_name == 'SWP-STOP') {
-    //         $reject = '';
-    //     }
-    //     if(!empty($reject)){
-    //         $this->db->select($reject);
-    //         $this->db->from($table_name);
-    //         $this->db->where('id', $id);
-    //         $query = $this->db->get()->row_array();
-    //         return $query;
-    //     }else{
-    //         return false;
-    //     }
-    // }
+
     public function get_filtered_data($table_name, $data)
     {
-        // echo my_arr($data);
+        echo my_arr($data);
+        die();
         $tag = '';
         if ($table_name == 'LUMPSUM') {
             $tag = 'lum';
@@ -102,16 +70,16 @@ class Functionality_model extends CI_Model
         $rm_name = $data['rm_name'];
         $reject = $data['reject_status'];
         $scheme = $data['scheme_name'];
+        // $years = $data['filter_by_years'];
+        // echo $years;
         $this->db->select('*');
         $this->db->from($table_name);
-        if(empty($first_date) && empty($second_date) && $client_id == 0){
-
-        }else if($client_id == 0){
+        if (empty($first_date) && empty($second_date) && $client_id == 0) {
+        } else if ($client_id == 0) {
             $this->db->where('' . $tag . '_date BETWEEN "' . $first_date . '" AND "' . $second_date . '"');
-        }elseif ($client_id != 0 ) {
+        } elseif ($client_id != 0) {
             $this->db->where('id', $client_id);
-        }
-        elseif($client_id != 0 && !empty($first_date) && !empty($second_date)){
+        } elseif ($client_id != 0 && !empty($first_date) && !empty($second_date)) {
             $this->db->where('' . $tag . '_date BETWEEN "' . $first_date . '" AND "' . $second_date . '"');
         }
 
@@ -122,38 +90,49 @@ class Functionality_model extends CI_Model
             $this->db->like('' . $tag . '_scheme', $scheme);
         }
         if ($table_name == 'LUMPSUM') {
-                    $reject_feild =  'lum_rejection';
-                } elseif ($table_name == 'SIP') {
-                    $reject_feild = 'sip_remark_content';
-                } elseif ($table_name == 'REDEMPTION') {
-                    $reject_feild =  'redem_reason_rejection';
-                } elseif ($table_name == 'SWITCH') {
-                    $reject_feild = '';
-                } elseif ($table_name == 'STP') {
-                    $reject_feild = '';
-                } elseif ($table_name == 'SWP') {
-                    $reject_feild = '';
-                } elseif ($table_name == 'COB') {
-                    $reject_feild = 'cob_remark';
-                } elseif ($table_name == 'SIP-STOP') {
-                    $reject_feild =  '';
-                } elseif ($table_name == 'STP-STOP') {
-                    $reject_feild = '';
-                } elseif ($table_name == 'SWP-STOP') {
-                    $reject_feild = '';
+            $reject_feild =  'lum_remark';
+        } elseif ($table_name == 'SIP') {
+            $reject_feild = 'sip_remark';
+        } elseif ($table_name == 'REDEMPTION') {
+            $reject_feild =  'redem_remark';
+        } elseif ($table_name == 'SWITCH') {
+            $reject_feild =  'switch_remark';
+        } elseif ($table_name == 'STP') {
+            $reject_feild = 'stp_remark';
+        } elseif ($table_name == 'SWP') {
+            $reject_feild = 'swp_duration';
+        } elseif ($table_name == 'COB') {
+            $reject_feild = 'cob_remark';
+        } elseif ($table_name == 'SIP-STOP') {
+            $reject_feild =  'sip_stop_remark';
+        } elseif ($table_name == 'STP-STOP') {
+            $reject_feild = 'stp_stop_remark';
+        } elseif ($table_name == 'SWP-STOP') {
+            $reject_feild = 'swp_stop_remark';
+        }
+        if ($reject != 'All') {
+            if ($reject != 'Yes') {
+                if ($table_name == 'LUMPSUM' || $table_name == 'SIP' || $table_name == 'REDEMPTION' || $table_name == 'REDEMPTION' || $table_name == 'SWITCH' || $table_name == 'SIP-STOP' || $table_name == 'STP-STOP' || $table_name == 'SWP-STOP' || $table_name == 'COB') {
+                    $this->db->where($reject_feild, 'Clear');
+                    $this->db->or_where($reject_feild, 'Choose');
+                    $this->db->or_where($reject_feild, '');
                 }
-                if($reject != 'All'){
-                    if ($reject != 'Yes') {
-                        $reject = '';
-                        $this->db->where($reject_feild, $reject);
-                    }else{
-                        // $this->db->where('$reject_feild is not', NULL);
-                        $this->db->like($reject_feild, 'R');
-                        // 'poi_num is not' => null
-                    }
+                if($table_name == 'STP' || $table_name == 'SWP'){
+                    $this->db->or_where($reject_feild, '');
+                    $this->db->or_where($reject_feild, 'Monthly');
+                    $this->db->or_where($reject_feild, 'Quaterly');
+                    $this->db->or_where($reject_feild, 'Weekly');
                 }
-                
-                // if()
+            } else {
+                if ($table_name == 'LUMPSUM' || $table_name == 'SIP' || $table_name == 'REDEMPTION' || $table_name == 'REDEMPTION' || $table_name == 'SWITCH' || $table_name == 'SIP-STOP' || $table_name == 'STP-STOP'  || $table_name == 'SWP-STOP' || $table_name == 'COB') {
+                    $this->db->where($reject_feild, 'Reject');
+                }
+                if ($table_name == 'STP' || $table_name == 'SWP' ) {
+                    $this->db->where($reject_feild, 'Reject');
+                }
+            }
+        }
+
         $query = $this->db->get()->result_array();
         return $query;
     }

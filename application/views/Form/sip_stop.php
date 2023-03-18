@@ -102,8 +102,16 @@ $title = '';
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="sip_stop_done_ok">Ok</label>
                                 <select class="form-select form-select-sm mt-1" name="sip_stop_done_ok" id="sip_stop_done_ok" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option value="" >Choose</option>
                                     <option value="Ok">Ok</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 col-sm-12 mt-3">
+                                <label for="sip_stop_remark">Remark</label>
+                                <select class="form-select form-select-sm mt-1" name="sip_stop_remark" id="sip_stop_remark" aria-label=".form-select-sm example">
+                                    <option value="" >Choose</option>
+                                    <option value="Clear">Clear</option>
+                                    <option value="Reject">Reject</option>
                                 </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">

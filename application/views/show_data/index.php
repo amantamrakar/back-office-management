@@ -145,6 +145,7 @@
                             <?php
                             if ($title == 'SWP-STOP') { ?>
                                 <th width="15%" class="text-center" style="font-weight: 300;">Stop Date</th>
+                                <th width="10%" class="text-center" style="font-weight: 300;">Remark</th>
                             <?php }
                             ?>
                             <?php
@@ -167,34 +168,44 @@
                             for ($i = 0; $i < count($get); $i++) { ?>
                                 <!-- -----------------solve rejection name head problem---------------------- -->
                                 <?php
-                                $reject = '';
-                                $style = '';
-                                if ($title == 'LUMPSUM') {
-                                    $reject =  $get[$i]['lum_rejection'];
-                                } elseif ($title == 'SIP') {
-                                    $reject = $get[$i]['sip_remark_content'];
-                                } elseif ($title == 'REDEMPTION') {
-                                    $reject =  $get[$i]['redem_reason_rejection'];
-                                } elseif ($title == 'SWITCH') {
-                                    $reject = '';
-                                } elseif ($title == 'STP') {
-                                    $reject = '';
-                                } elseif ($title == 'SWP') {
-                                    $reject = '';
-                                } elseif ($title == 'COB') {
-                                    $reject = $get[$i]['cob_remark'];
-                                } elseif ($title == 'SIP-STOP') {
-                                    $reject =  '';
-                                } elseif ($title == 'STP-STOP') {
-                                    $reject = '';
-                                } elseif ($title == 'SWP-STOP') {
-                                    $reject = '';
-                                }
-
-                                if(!empty($reject)){
-                                    $style = "background:rgba(255, 136, 136, 0.59)";
-                                }
-                                ?>
+                                 $reject = '';
+                                 $style = '';
+                                 $reject_name = '';
+                                 if ($title == 'LUMPSUM') {
+                                     $reject =  $get[$i]['lum_remark'];
+                                     $reject_name =  $get[$i]['lum_rejection'];
+                                 } elseif ($title == 'SIP') {
+                                     $reject =  $get[$i]['sip_remark'];
+                                     $reject_name = $get[$i]['sip_remark_content'];
+                                 } elseif ($title == 'REDEMPTION') {
+                                     $reject =  $get[$i]['redem_remark'];
+                                     $reject_name =  $get[$i]['redem_reason_rejection'];
+                                 } elseif ($title == 'SWITCH') {
+                                     $reject = $get[$i]['switch_remark'];
+                                 } elseif ($title == 'STP') {
+                                     $reject =  $get[$i]['stp_remark'];
+                                 } elseif ($title == 'SWP') {
+                                     $reject = $get[$i]['swp_duration'];
+                                 } elseif ($title == 'COB') {
+                                     $reject = $get[$i]['cob_remark'];
+                                     $reject_name = $get[$i]['cob_remark'];
+                                 } elseif ($title == 'SIP-STOP') {
+                                     $reject =  $get[$i]['sip_stop_remark'];
+                                     $reject_name =  $get[$i]['sip_stop_remark'];
+                                 } elseif ($title == 'STP-STOP') {
+                                     $reject = $get[$i]['stp_stop_remark'];
+                                     $reject_name = $get[$i]['stp_stop_remark'];
+                                 } elseif ($title == 'SWP-STOP') {
+                                     $reject = $get[$i]['swp_stop_remark'];
+                                     $reject_name = $get[$i]['swp_stop_remark'];
+                                 }
+ 
+                                 if($reject == 'Reject'){
+                                     $style = "background:rgba(255, 136, 136, 0.59)";
+                                 }elseif($reject == 'Choose' || empty($reject) ){
+                                     $style = "background:rgb(224 235 63 / 59%)";
+                                 } 
+                                 ?>
                                 <!-- -----------------solve rejection name head problem---------------------- -->
                                 <tr class="" style="<?php echo $style ?>">
                                     <td class="text-center"><?php echo $j ?> </td>
@@ -338,6 +349,7 @@
                                     <?php
                                     if ($title == 'SWP-STOP') { ?>
                                         <td class="text-center"><?php echo $get[$i]['swp_stop_stop_date'] ?></td>
+                                        <td class="text-center"><?php echo $get[$i]['swp_stop_remark'] ?></td>
                                     <?php }
                                     ?>
                                     <?php

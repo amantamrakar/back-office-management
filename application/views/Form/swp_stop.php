@@ -95,6 +95,14 @@ $title = '';
                                 </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
+                                <label for="swp_stop_remark">Remark</label>
+                                <select class="form-select form-select-sm mt-1" name="swp_stop_remark" id="swp_stop_remark" aria-label=".form-select-sm example">
+                                    <option value="" >Choose</option>
+                                    <option value="Clear">Clear</option>
+                                    <option value="Reject">Reject</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="swp_stop_stop_date">Stop Date </label>
                                 <input class="form-control form-control-sm mt-1" type="date" name="swp_stop_stop_date" id="swp_stop_stop_date">
                             </div>

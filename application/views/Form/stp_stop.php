@@ -112,8 +112,16 @@ $title = '';
                                 <input class="form-control form-control-sm mt-1" type="text" name="stp_stop_amount" id="stp_stop_amount">
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
-                                <label for="stp_stop_remark">Remark </label>
-                                <input class="form-control form-control-sm mt-1" type="text" name="stp_stop_remark" id="stp_stop_remark">
+                                <label for="stp_stop_remark">Remark</label>
+                                <select class="form-select form-select-sm mt-1" name="stp_stop_remark" id="stp_stop_remark" aria-label=".form-select-sm example">
+                                    <option value="" >Choose</option>
+                                    <option value="Clear">Clear</option>
+                                    <option value="Reject">Reject</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 col-sm-12 mt-3">
+                                <label for="stp_stop_remark_reason">Remark Reason </label>
+                                <input class="form-control form-control-sm mt-1" type="text" name="stp_stop_remark_reason" id="stp_stop_remark_reason">
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="stp_stop_done_ok">Ok</label>
@@ -122,6 +130,8 @@ $title = '';
                                     <option value="Ok">Ok</option>
                                 </select>
                             </div>
+                         
+                            
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="stp_stop_rm_name">RM Name</label>
                                 <input class="form-control form-control-sm mt-1" type="text" name="stp_stop_rm_name" id="stp_stop_rm_name">

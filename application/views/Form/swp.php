@@ -107,10 +107,13 @@
                             </div>
 
                             <div class="col-md-3 col-sm-12 mt-3">
-                                <label for="swp_duration">Duration</label>
+                                <label for="swp_duration">Duration/Remark</label>
                                 <select class="form-select form-select-sm mt-1" name="swp_duration" id="swp_duration" aria-label=".form-select-sm example">
-                                    <option>Choose</option>
+                                    <option value="">choose</option>
                                     <option value="Monthly">Monthly</option>
+                                    <option value="Quaterly">Quaterly</option>
+                                    <option value="Weekly">Weekly</option>
+                                    <option value="Reject">Reject</option>
                                 </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">

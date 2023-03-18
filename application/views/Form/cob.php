@@ -30,10 +30,10 @@
                     <?php
                     $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'Decemeber');
                     ?>
-                    <form action="" id="<?php echo $data.'Form' ?>">
+                    <form action="" id="<?php echo $data . 'Form' ?>">
 
                         <div class="row">
-                        <input class="form-control form-control-sm mt-1" type="text" name="YmFzZTY0IGRlY29kZXI=" value="<?php echo base64_encode($data) ?>" id="" hidden>
+                            <input class="form-control form-control-sm mt-1" type="text" name="YmFzZTY0IGRlY29kZXI=" value="<?php echo base64_encode($data) ?>" id="" hidden>
 
                             <div class="col-md-3 col-sm-12">
                                 <label for="cob_date">Date</label>
@@ -46,7 +46,7 @@
                             <div class="col-md-3 col-sm-12">
                                 <label for="cob_mode">COB Mode</label>
                                 <select class="form-select form-select-sm mt-1" name="cob_mode" id="cob_mode" aria-label=".form-select-sm example" required>
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <option value="ON">ON</option>
                                     <option value="OFF">OFF</option>
 
@@ -55,7 +55,7 @@
                             <div class="col-md-3 col-sm-12">
                                 <label for="cob_month">Month</label>
                                 <select class="form-select form-select-sm mt-1" name="cob_month" id="cob_month" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <?php
                                     for ($i = 0; $i < count($month); $i++) { ?>
                                         <option value="<?php echo $month[$i] ?>"><?php echo $month[$i] ?></option>
@@ -87,16 +87,20 @@
                                 <input class="form-control form-control-sm mt-1" type="text" name="cob_folio_no" id="cob_folio_no">
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
-                                <label for="cob_done_ok">Ok</label>
+                                <label for="cob_done_ok">Status/OK</label>
                                 <select class="form-select form-select-sm mt-1" name="cob_done_ok" id="cob_done_ok" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <option value="OK">Ok</option>
-                                    <option value="Blank">Blank</option>
+                                    <!-- <option value="Reject">Reject</option> -->
                                 </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="cob_remark">Remark</label>
-                                <input class="form-control form-control-sm mt-1" type="text" name="cob_remark" id="cob_remark">
+                                <select class="form-select form-select-sm mt-1" name="cob_remark" id="cob_remark" aria-label=".form-select-sm example">
+                                    <option value="">Choose</option>
+                                    <option value="Clear">Clear</option>
+                                    <option value="Reject">Reject</option>
+                                </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="cob_rm_name">RM Name</label>
