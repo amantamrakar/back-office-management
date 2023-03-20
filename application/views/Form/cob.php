@@ -23,17 +23,18 @@
 <body>
     <div id="content">
         <div class="container mt-3">
-
+            <div class="alert text-center text-white" id="form_submition_alert" style="display:none;width:100%;font-size:14px; height:20px'" role="alert">sdd
+            </div>
             <div class="card">
                 <h6 class="text-center rounded card_heading" id="card_heading" style="font-size: 15px;"><?php echo $data ?></h6>
                 <div class="card-body">
                     <?php
                     $month = array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'Decemeber');
                     ?>
-                    <form action="" id="<?php echo $data.'Form' ?>">
+                    <form action="" id="<?php echo $data . 'Form' ?>">
 
                         <div class="row">
-                        <input class="form-control form-control-sm mt-1" type="text" name="YmFzZTY0IGRlY29kZXI=" value="<?php echo base64_encode($data) ?>" id="" hidden>
+                            <input class="form-control form-control-sm mt-1" type="text" name="YmFzZTY0IGRlY29kZXI=" value="<?php echo base64_encode($data) ?>" id="" hidden>
 
                             <div class="col-md-3 col-sm-12">
                                 <label for="cob_date">Date</label>
@@ -46,7 +47,7 @@
                             <div class="col-md-3 col-sm-12">
                                 <label for="cob_mode">COB Mode</label>
                                 <select class="form-select form-select-sm mt-1" name="cob_mode" id="cob_mode" aria-label=".form-select-sm example" required>
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <option value="ON">ON</option>
                                     <option value="OFF">OFF</option>
 
@@ -55,7 +56,7 @@
                             <div class="col-md-3 col-sm-12">
                                 <label for="cob_month">Month</label>
                                 <select class="form-select form-select-sm mt-1" name="cob_month" id="cob_month" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <?php
                                     for ($i = 0; $i < count($month); $i++) { ?>
                                         <option value="<?php echo $month[$i] ?>"><?php echo $month[$i] ?></option>
@@ -87,16 +88,20 @@
                                 <input class="form-control form-control-sm mt-1" type="text" name="cob_folio_no" id="cob_folio_no">
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
-                                <label for="cob_done_ok">Ok</label>
+                                <label for="cob_done_ok">Status/OK</label>
                                 <select class="form-select form-select-sm mt-1" name="cob_done_ok" id="cob_done_ok" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <option value="OK">Ok</option>
-                                    <option value="Blank">Blank</option>
+                                    <!-- <option value="Reject">Reject</option> -->
                                 </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="cob_remark">Remark</label>
-                                <input class="form-control form-control-sm mt-1" type="text" name="cob_remark" id="cob_remark">
+                                <select class="form-select form-select-sm mt-1" name="cob_remark" id="cob_remark" aria-label=".form-select-sm example">
+                                    <option value="">Choose</option>
+                                    <option value="Clear">Clear</option>
+                                    <option value="Reject">Reject</option>
+                                </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="cob_rm_name">RM Name</label>
@@ -135,7 +140,15 @@
             data: $("#<?php echo $data . 'Form' ?>").serialize(),
             dataType: "json",
             success: function(data) {
-                console.log(data);
+                if (data.status) {
+                    Call_alert('form_submition_alert', data.message, data.class);
+                    $("#<?php echo $data . 'Form' ?>")[0].reset()
+                    setInterval(function() {
+                        window.location.reload()
+                    }, 1500)
+                } else {
+                    Call_alert('form_submition_alert', data.message, data.class);
+                }
             }
         });
     })

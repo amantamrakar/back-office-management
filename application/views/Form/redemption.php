@@ -27,6 +27,8 @@ $title = '';
 <body>
     <div id="content">
         <div class="container mt-3">
+            <div class="alert text-center text-white" id="form_submition_alert" style="display:none;width:100%;font-size:14px; height:20px'" role="alert">sdd
+            </div>
             <div class="card">
                 <h6 class="text-center rounded card_heading" id="card_heading" style="font-size: 15px;"><?php echo $data ?></h6>
                 <div class="card-body">
@@ -48,7 +50,7 @@ $title = '';
                             <div class="col-md-3 col-sm-12">
                                 <label for="redem_month">Month</label>
                                 <select class="form-select form-select-sm mt-1" name="redem_month" id="redem_month" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <?php
                                     for ($i = 0; $i < count($month); $i++) { ?>
                                         <option value="<?php echo $month[$i] ?>"><?php echo $month[$i] ?></option>
@@ -62,7 +64,7 @@ $title = '';
                             <div class="col-md-3 col-sm-12">
                                 <label for="redem_of_on">On/Off</label>
                                 <select class="form-select form-select-sm mt-1" name="redem_of_on" id="redem_of_on" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <option value="ON">ON</option>
                                     <option value="OFF">OFF</option>
                                 </select>
@@ -89,7 +91,7 @@ $title = '';
                                 $mop_arr = array('CHEQUE', 'NEFT', 'RTGS', 'DC');
                                 ?>
                                 <select class="form-select form-select-sm mt-1" name="redem_mode_of_pay" id="redem_mode_of_pay" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <?php
                                     for ($i = 0; $i < count($mop_arr); $i++) { ?>
                                         <option value="<?php echo $mop_arr[$i] ?>"><?php echo $mop_arr[$i] ?></option>
@@ -118,18 +120,17 @@ $title = '';
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="redem_done_ok">Ok</label>
                                 <select class="form-select form-select-sm mt-1" name="redem_done_ok" id="redem_done_ok" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <option value="Ok">Ok</option>
-                                    <option value="Blank">Blank</option>
                                 </select>
                             </div>
 
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="redem_remark">Remark</label>
                                 <select class="form-select form-select-sm mt-1" name="redem_remark" id="redem_remark" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <option value="Clear">Clear</option>
-                                    <option value="Blank">Blank</option>
+                                    <option value="Reject">Reject</option>
                                 </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
@@ -197,7 +198,15 @@ $title = '';
             data: $("#<?php echo $data . 'Form' ?>").serialize(),
             dataType: "json",
             success: function(data) {
-                console.log(data);
+                if (data.status) {
+                    Call_alert('form_submition_alert', data.message, data.class);
+                    $("#<?php echo $data . 'Form' ?>")[0].reset()
+                    setInterval(function() {
+                        window.location.reload()
+                    }, 1500)
+                } else {
+                    Call_alert('form_submition_alert', data.message, data.class);
+                }
             }
         });
     })

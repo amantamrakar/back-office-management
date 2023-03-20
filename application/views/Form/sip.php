@@ -27,6 +27,8 @@ $title = '';
 <body>
     <div id="content">
         <div class="container mt-3">
+            <div class="alert text-center text-white" id="form_submition_alert" style="display:none;width:100%;font-size:14px; height:20px'" role="alert">sdd
+            </div>
             <div class="card">
                 <h6 class="text-center rounded card_heading" id="card_heading" style="font-size: 15px;"><?php echo $data ?></h6>
                 <div class="card-body">
@@ -103,7 +105,7 @@ $title = '';
                                 <select class="form-select form-select-sm mt-1" name="sip_remark" id="sip_remark" aria-label=".form-select-sm example">
                                     <option>Choose</option>
                                     <option value="Clear">Clear</option>
-                                    <option value="Blank">Blank</option>
+                                    <option value="Reject">Reject</option>
                                 </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
@@ -111,7 +113,6 @@ $title = '';
                                 <select class="form-select form-select-sm mt-1" name="sip_done_ok" id="sip_done_ok" aria-label=".form-select-sm example">
                                     <option selected>Choose</option>
                                     <option value="OK">Ok</option>
-                                    <option value="Blank">Blank</option>
                                 </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
@@ -183,7 +184,15 @@ $title = '';
             data: $("#<?php echo $data . 'Form' ?>").serialize(),
             dataType: "json",
             success: function(data) {
-                console.log(data);
+                if (data.status) {
+                    Call_alert('form_submition_alert', data.message, data.class);
+                    $("#<?php echo $data . 'Form' ?>")[0].reset()
+                    setInterval(function() {
+                        window.location.reload()
+                    }, 1500)
+                } else {
+                    Call_alert('form_submition_alert', data.message, data.class);
+                }
             }
         });
     })

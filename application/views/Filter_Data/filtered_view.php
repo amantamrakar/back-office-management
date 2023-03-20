@@ -59,7 +59,7 @@
     // print_r($get);
     // die();
     ?>
-    <div class="container-fluid">
+    <div class="container-fluid mt-3">
         <div class="card">
             <div class="card-body">
                 <table class="table cell-border row-border display " id="table" style="font-size: 12px;">
@@ -125,6 +125,7 @@
                             <th width="5%" class="text-center" style="font-weight: 300;">L/E</th>
                             <th width="10%" class="text-center" style="font-weight: 300;">Date</th>
                             <th width="5%" class="text-center" style="font-weight: 300;">Continue<br>Complete</th>
+                            <th width="5%" class="text-center" style="font-weight: 300;">Other Info</th>
                             <th width="5%" class="text-center" style="font-weight: 300;">Type</th>
                         <?php }
                         ?>
@@ -140,6 +141,7 @@
                         if ($title == 'SIP-STOP') { ?>
                             <th width="5%" class="text-center" style="font-weight: 300;">Pouse</th>
                             <th width="5%" class="text-center" style="font-weight: 300;">Pouse<br>Date</th>
+                            <th width="10%" class="text-center" style="font-weight: 300;">Remark<br>Date</th>
                         <?php }
                         ?>
                         <?php
@@ -151,7 +153,7 @@
                         <?php
                         if ($title == 'SWP-STOP') { ?>
                             <th width="15%" class="text-center" style="font-weight: 300;">Stop Date</th>
-                            <th width="10%" class="text-center" style="font-weight: 300;">Remark</th>
+                            <th width="15%" class="text-center" style="font-weight: 300;">Remark</th>
                         <?php }
                         ?>
                         <?php
@@ -159,11 +161,12 @@
                             <th width="5%" class="text-center" style="font-weight: 300;">Activity</th>
                             <th width="10%" class="text-center" style="font-weight: 300;" style="">Related <br> Use</th>
                             <th width="5%" class="text-center" style="font-weight: 300;">Other <br> Info</th>
+                            <th width="5%" class="text-center" style="font-weight: 300;">Remark</th>
                         <?php }
                         ?>
                         <?php
-                        if ($title == 'LUMPSUM' || $title == 'SIP' || $title == 'REDEMPTION' || $title == 'COB') { ?>
-                            <th width="5%" class="text-center" style="font-weight: 300;">Reject</th>
+                        if ($title == 'LUMPSUM' || $title == 'SIP' || $title == 'REDEMPTION') { ?>
+                            <th width="5%" class="text-center" style="font-weight: 300;">Information</th>
                         <?php }
                         ?>
                     </thead>
@@ -171,43 +174,39 @@
                     <tbody>
                         <?php
                         $j = 1;
-                        $total_amount  = 0;
-                        for ($i = 0; $i < count($get); $i++) {
-
-                        ?>
-
+                        $total_amount = 0;
+                        for ($i = 0; $i < count($data); $i++) { ?>
                             <!-- -----------------solve rejection name head problem---------------------- -->
                             <?php
                             $reject = '';
                             $style = '';
-                            $reject_name = '';
                             if ($title == 'LUMPSUM') {
-                                $reject =  $get[$i]['lum_remark'];
-                                $reject_name =  $get[$i]['lum_rejection'];
+                                $reject =  $data[$i]['lum_remark'];
+                                $reject_name =  $data[$i]['lum_rejection'];
                             } elseif ($title == 'SIP') {
-                                $reject =  $get[$i]['sip_remark'];
-                                $reject_name = $get[$i]['sip_remark_content'];
+                                $reject =  $data[$i]['sip_remark'];
+                                $reject_name = $data[$i]['sip_remark_content'];
                             } elseif ($title == 'REDEMPTION') {
-                                $reject =  $get[$i]['redem_remark'];
-                                $reject_name =  $get[$i]['redem_reason_rejection'];
+                                $reject =  $data[$i]['redem_remark'];
+                                $reject_name =  $data[$i]['redem_reason_rejection'];
                             } elseif ($title == 'SWITCH') {
-                                $reject = $get[$i]['switch_remark'];
+                                $reject = $data[$i]['switch_remark'];
                             } elseif ($title == 'STP') {
-                                $reject =  $get[$i]['stp_remark'];
+                                $reject =  $data[$i]['stp_remark'];
                             } elseif ($title == 'SWP') {
-                                $reject = $get[$i]['swp_duration'];
+                                $reject = $data[$i]['swp_duration'];
                             } elseif ($title == 'COB') {
-                                $reject = $get[$i]['cob_remark'];
-                                $reject_name = $get[$i]['cob_remark'];
+                                $reject = $data[$i]['cob_remark'];
+                                $reject_name = $data[$i]['cob_remark'];
                             } elseif ($title == 'SIP-STOP') {
-                                $reject =  $get[$i]['sip_stop_remark'];
-                                $reject_name =  $get[$i]['sip_stop_remark'];
+                                $reject =  $data[$i]['sip_stop_remark'];
+                                $reject_name =  $data[$i]['sip_stop_remark'];
                             } elseif ($title == 'STP-STOP') {
-                                $reject = $get[$i]['stp_stop_remark'];
-                                $reject_name = $get[$i]['stp_stop_remark'];
+                                $reject = $data[$i]['stp_stop_remark'];
+                                $reject_name = $data[$i]['stp_stop_remark'];
                             } elseif ($title == 'SWP-STOP') {
-                                $reject = $get[$i]['swp_stop_remark'];
-                                $reject_name = $get[$i]['swp_stop_remark'];
+                                $reject = $data[$i]['swp_stop_remark'];
+                                $reject_name = $data[$i]['swp_stop_remark'];
                             }
 
                             if ($reject == 'Reject') {
@@ -218,25 +217,30 @@
                             ?>
                             <!-- -----------------solve rejection name head problem---------------------- -->
                             <?php
-
                             if ($title != 'COB') { ?>
-                                <?php $total_amount += intval($get[$i]['' . $tag . '_amount']);  ?>
+                                <?php $total_amount += intval($data[$i]['' . $tag . '_amount']);  ?>
+
                             <?php
                             }
                             ?>
                             <tr class="" style="<?php echo $style ?>">
                                 <td class="text-center"><?php echo $j ?> </td>
                                 <td class="">
-                                    <span><span class="fw-bold">Client Name: </span><?php echo $get[$i]['' . $tag . '_client_name'] ?></span><br>
+                                    <span><span class="fw-bold">Client Name:
+                                        </span><?php echo $data[$i]['' . $tag . '_client_name'] ?></span><br>
                                     <?php
-                                    if ($title == 'LUMPSUM' || $title == ' SIP') { ?>
-                                        <span><span class="fw-bold">Pan No.: </span><?php echo $get[$i]['' . $tag . '_pan_no'] ?></span><br>
-                                        <span><span class="fw-bold">Client Type: </span><?php echo $get[$i]['' . $tag . '_client_type'] ?></span><br>
+                                    if ($title == 'LUMPSUM' || $title == 'SIP') { ?>
+                                        <!-- <span><span class="fw-bold">Fund : </span><?php echo $data[$i]['' . $tag . '_fund'] ?></span><br> -->
+                                        <span><span class="fw-bold">Pan No.:
+                                            </span><?php echo $data[$i]['' . $tag . '_pan_no'] ?></span><br>
+                                        <span><span class="fw-bold">Client Type:
+                                            </span><?php echo $data[$i]['' . $tag . '_client_type'] ?></span><br>
 
                                     <?php
                                     }
                                     ?>
-                                    <span><span class="fw-bold">Date: </span><?php echo $get[$i]['' . $tag . '_date'] ?> </span>
+                                    <span><span class="fw-bold">Date: </span><?php echo $data[$i]['' . $tag . '_date'] ?>
+                                    </span>
 
                                 </td>
                                 <td class="">
@@ -244,84 +248,98 @@
 
                                     if ($title != 'COB') {
                                         if ($title != 'STP-STOP') { ?>
-                                            <span><span class="fw-bold">Scheme Name: </span><?php echo $get[$i]['' . $tag . '_scheme'] ?></span><br>
+                                            <span><span class="fw-bold">Scheme Name:
+                                                </span><?php echo $data[$i]['' . $tag . '_scheme'] ?></span><br>
                                         <?php
                                         }
                                         ?>
                                         <?php
-                                        if ($title == 'LUMPSUM' || $title == ' SIP' || $title == 'REDEMPTION' || $title == 'SIP-STOP') { ?>
-                                            <span><span class="fw-bold">Fund Name: </span><?php echo $get[$i]['' . $tag . '_fund'] ?></span><br>
+                                        if ($title == 'LUMPSUM' || $title == 'SIP' || $title == 'REDEMPTION' || $title == 'SIP-STOP') { ?>
+                                            <span><span class="fw-bold">Fund Name:
+                                                </span><?php echo $data[$i]['' . $tag . '_fund'] ?></span><br>
                                         <?php
                                         }
                                         ?>
                                         <?php
                                         if ($title == 'SWITCH' || $title == 'STP') { ?>
-                                            <span><span class="fw-bold">Scheme Switch To: </span><?php echo $get[$i]['' . $tag . '_to_scheme'] ?></span><br>
+                                            <span><span class="fw-bold">Scheme Switch To:
+                                                </span><?php echo $data[$i]['' . $tag . '_to_scheme'] ?></span><br>
                                         <?php
                                         }
                                         ?>
                                         <?php
                                         if ($title == 'STP-STOP') { ?>
-                                            <span><span class="fw-bold">Scheme Name: </span><?php echo $get[$i]['' . $tag . '_from_scheme_name'] ?></span><br>
-                                            <span><span class="fw-bold">STP to Scheme: </span><?php echo $get[$i]['stp_stop_to_scheme_name'] ?></span><br>
+                                            <span><span class="fw-bold">Scheme Name:
+                                                </span><?php echo $data[$i]['' . $tag . '_from_scheme_name'] ?></span><br>
+                                            <span><span class="fw-bold">STP to Scheme:
+                                                </span><?php echo $data[$i]['stp_stop_to_scheme_name'] ?></span><br>
                                         <?php
                                         }
                                         ?>
-                                        <span><span class="fw-bold">Folio No.: </span><?php echo $get[$i]['' . $tag . '_folio_no'] ?> </span><br>
-                                        <span><span class="fw-bold">Submit Place: </span><?php echo $get[$i]['' . $tag . '_submit'] ?></span><br>
-                                        <!-- <span><span class="fw-bold">Amount: </span></span><br> -->
+                                        <span><span class="fw-bold">Folio No.:
+                                            </span><?php echo $data[$i]['' . $tag . '_folio_no'] ?> </span><br>
+                                        <span><span class="fw-bold">Submit Place:
+                                            </span><?php echo $data[$i]['' . $tag . '_submit'] ?></span><br>
+                                        <span><span class="fw-bold">Amount:
+                                            </span><?php echo $data[$i]['' . $tag . '_amount'] ?> </span><br>
                                     <?php
                                     } else { ?>
-                                        <span><span class="fw-bold">Submit: </span><?php echo $get[$i]['' . $tag . '_submit_place'] ?></span><br>
-                                        <span><span class="fw-bold">Folio No. : </span><?php echo $get[$i]['' . $tag . '_folio_no'] ?></span><br>
+                                        <span><span class="fw-bold">Submit:
+                                            </span><?php echo $data[$i]['' . $tag . '_submit_place'] ?></span><br>
+                                        <span><span class="fw-bold">Folio No. :
+                                            </span><?php echo $data[$i]['' . $tag . '_folio_no'] ?></span><br>
                                     <?php
                                     }
                                     ?>
                                 </td>
                                 <?php
                                 if ($title != 'COB') { ?>
-                                    <td><?php echo $get[$i]['' . $tag . '_amount'] ?> </td>
+                                    <td><?php echo $data[$i]['' . $tag . '_amount'] ?> </td>
                                 <?php
                                 }
                                 ?>
                                 <?php
                                 if ($title == 'SWITCH' || $title == 'STP' || $title == 'STP-STOP') { ?>
-                                    <td><?php echo $get[$i]['' . $tag . '_amc_name'] ?></td>
+                                    <td><?php echo $data[$i]['' . $tag . '_amc_name'] ?></td>
                                 <?php }
                                 ?>
-                                <td class="text-center"><?php echo $get[$i]['' . $tag . '_s_no'] ?></td>
-                                <td class="text-center"><?php echo $get[$i]['' . $tag . '_month'] ?></td>
+                                <td class="text-center"><?php echo $data[$i]['' . $tag . '_s_no'] ?></td>
+                                <td class="text-center"><?php echo $data[$i]['' . $tag . '_month'] ?></td>
                                 <?php
                                 if ($title != 'COB') { ?>
-                                    <td class="text-center"><?php echo $get[$i]['' . $tag . '_of_on'] ?></td>
+                                    <td class="text-center"><?php echo $data[$i]['' . $tag . '_of_on'] ?></td>
                                 <?php
                                 } else { ?>
-                                    <td class="text-center"><?php echo $get[$i]['' . $tag . '_mode'] ?></td>
+                                    <td class="text-center"><?php echo $data[$i]['' . $tag . '_mode'] ?></td>
                                 <?php
                                 }
                                 ?>
-                                <td class="text-center"><?php echo $get[$i]['' . $tag . '_done_ok'] ?></td>
-                                <td class="text-center"><?php echo $get[$i]['' . $tag . '_rm_name'] ?></td>
+                                <td class="text-center"><?php echo $data[$i]['' . $tag . '_done_ok'] ?></td>
+                                <td class="text-center"><?php echo $data[$i]['' . $tag . '_rm_name'] ?></td>
                                 <?php
                                 if ($title == 'LUMPSUM' || $title == 'SIP' || $title == 'REDEMPTION' || $title == 'SWITCH' || $title == 'STP'  || $title == 'STP-STOP') { ?>
-                                    <td class="text-center"><?php echo $get[$i]['' . $tag . '_remark'] ?></td>
+                                    <td class="text-center"><?php echo $data[$i]['' . $tag . '_remark'] ?></td>
                                 <?php } elseif ($title == 'SIP-STOP') { ?>
-                                    <td class="text-center"><?php echo $get[$i]['' . $tag . '_remark_date'] ?></td>
+                                    <td class="text-center"><?php echo $data[$i]['' . $tag . '_remark'] ?></td>
                                 <?php       }
                                 ?>
                                 <?php
                                 if ($title == 'LUMPSUM') { ?>
-                                    <td class="text-center"><?php echo $get[$i]['' . $tag . '_category'] ?></td>
-                                    <td class="text-center"><?php echo $get[$i]['' . $tag . '_after_liquid_fund'] ?></td>
+                                    <td class="text-center"><?php echo $data[$i]['' . $tag . '_category'] ?></td>
+                                    <td class="text-center"><?php echo $data[$i]['' . $tag . '_after_liquid_fund'] ?></td>
                                 <?php }
                                 ?>
                                 <?php
                                 if ($title == 'SIP') { ?>
                                     <td>
-                                        <span><span class="fw-bold">Freedom Mitra: </span><?php echo $get[$i]['sip_freedom_mitra'] ?></span><br>
-                                        <span><span class="fw-bold">Category: </span><?php echo $get[$i]['sip_category'] ?></span><br>
-                                        <span><span class="fw-bold">Continue/Stop: </span><?php echo $get[$i]['sip_continue_stop'] ?> </span><br>
-                                        <span><span class="fw-bold">Target-Boost-SIP: </span><?php echo $get[$i]['sip_target_boster_sip'] ?> </span><br>
+                                        <span><span class="fw-bold">Freedom Mitra:
+                                            </span><?php echo $data[$i]['sip_freedom_mitra'] ?></span><br>
+                                        <span><span class="fw-bold">Category:
+                                            </span><?php echo $data[$i]['sip_category'] ?></span><br>
+                                        <span><span class="fw-bold">Continue/Stop:
+                                            </span><?php echo $data[$i]['sip_continue_stop'] ?> </span><br>
+                                        <span><span class="fw-bold">Target-Boost-SIP:
+                                            </span><?php echo $data[$i]['sip_target_boster_sip'] ?> </span><br>
                                     </td>
 
                                 <?php }
@@ -329,62 +347,72 @@
                                 <?php
                                 if ($title == 'REDEMPTION') { ?>
                                     <td>
-                                        <span><span class="fw-bold">Mode of Payment: </span><?php echo $get[$i]['' . $tag . '_mode_of_pay'] ?></span><br>
-                                        <span><span class="fw-bold">Bank Name: </span><?php echo $get[$i]['' . $tag . '_bank_name'] ?> </span><br>
-                                        <span><span class="fw-bold">Account No.: </span><?php echo $get[$i]['' . $tag . '_account_no'] ?></span><br>
+                                        <span><span class="fw-bold">Mode of Payment:
+                                            </span><?php echo $data[$i]['' . $tag . '_mode_of_pay'] ?></span><br>
+                                        <span><span class="fw-bold">Bank Name:
+                                            </span><?php echo $data[$i]['' . $tag . '_bank_name'] ?> </span><br>
+                                        <span><span class="fw-bold">Account No.:
+                                            </span><?php echo $data[$i]['' . $tag . '_account_no'] ?></span><br>
                                     </td>
                                 <?php }
                                 ?>
                                 <?php
                                 if ($title == 'SWITCH') { ?>
-                                    <td class="text-center"><?php echo $get[$i]['' . $tag . '_stp_switch'] ?></td>
-                                    <td class="text-center"><?php echo $get[$i]['' . $tag . '_l_e'] ?></td>
+                                    <td class="text-center"><?php echo $data[$i]['' . $tag . '_stp_switch'] ?></td>
+                                    <td class="text-center"><?php echo $data[$i]['' . $tag . '_l_e'] ?></td>
                                 <?php }
                                 ?>
                                 <?php
                                 if ($title == 'STP') { ?>
-                                    <td class="text-center"><?php echo $get[$i]['stp_l_e'] ?></td>
-                                    <td class="text-center"><?php echo '[' . $get[$i]['stp_date_1'] . ']<br>to<br>[' . $get[$i]['stp_date_2'] . ']' ?></td>
-                                    <td class="text-center"><?php echo $get[$i]['stp_comp_continue'] ?></td>
-                                    <td class="text-center"><?php echo $get[$i]['stp_stp_type'] ?></td>
+                                    <td class="text-center"><?php echo $data[$i]['stp_l_e'] ?></td>
+                                    <td class="text-center">
+                                        <?php echo '[' . $data[$i]['stp_date_1'] . ']<br>to<br>[' . $data[$i]['stp_date_2'] . ']' ?>
+                                    </td>
+                                    <td class="text-center"><?php echo $data[$i]['stp_comp_continue'] ?></td>
+                                    <td class="text-center"><?php echo $data[$i]['stp_other_info'] ?></td>
+                                    <td class="text-center"><?php echo $data[$i]['stp_stp_type'] ?></td>
                                 <?php }
                                 ?>
                                 <?php
                                 if ($title == 'SWP') { ?>
-                                    <td class="text-center"><?php echo $get[$i]['swp_date_start'] ?> </td>
-                                    <td class="text-center"><?php echo $get[$i]['swp_date_end'] ?> </td>
-                                    <td class="text-center"><?php echo $get[$i]['swp_duration'] ?> </td>
-                                    <td class="text-center"><?php echo $get[$i]['swp_other_info'] ?> </td>
+                                    <td class="text-center"><?php echo $data[$i]['swp_date_start'] ?> </td>
+                                    <td class="text-center"><?php echo $data[$i]['swp_date_end'] ?> </td>
+                                    <td class="text-center"><?php echo $data[$i]['swp_duration'] ?> </td>
+                                    <td class="text-center"><?php echo $data[$i]['swp_other_info'] ?> </td>
                                 <?php }
                                 ?>
                                 <?php
                                 if ($title == 'SIP-STOP') { ?>
-                                    <td class="text-center"><?php echo $get[$i]['sip_stop_pause'] ?></td>
-                                    <td class="text-center"><?php echo $get[$i]['sip_stop_pause_date_from'] . '<br>TO<br>' . $get[$i]['sip_stop_pause_date_to'] ?></td>
+                                    <td class="text-center"><?php echo $data[$i]['sip_stop_pause'] ?></td>
+                                    <td class="text-center">
+                                        <?php echo $data[$i]['sip_stop_pause_date_from'] . '<br>TO<br>' . $data[$i]['sip_stop_pause_date_to'] ?>
+                                    </td>
+                                    <td class="text-center"><?php echo $data[$i]['sip_stop_remark_date']  ?></td>
                                 <?php }
                                 ?>
                                 <?php
                                 if ($title == 'STP-STOP') { ?>
-                                    <td class="text-center"><?php echo $get[$i]['' . $tag . '_l_e'] ?></td>
-                                    <td class="text-center"><?php echo $get[$i]['' . $tag . '_other_info'] ?></td>
+                                    <td class="text-center"><?php echo $data[$i]['' . $tag . '_l_e'] ?></td>
+                                    <td class="text-center"><?php echo $data[$i]['' . $tag . '_other_info'] ?></td>
                                 <?php }
                                 ?>
                                 <?php
                                 if ($title == 'SWP-STOP') { ?>
-                                    <td class="text-center"><?php echo $get[$i]['swp_stop_stop_date'] ?></td>
-                                    <td class="text-center"><?php echo $get[$i]['swp_stop_remark'] ?></td>
+                                    <td class="text-center"><?php echo $data[$i]['swp_stop_stop_date'] ?></td>
+                                    <td class="text-center"><?php echo $data[$i]['swp_stop_remark'] ?></td>
                                 <?php }
                                 ?>
                                 <?php
                                 if ($title == 'COB') { ?>
-                                    <td class="text-center"><?php echo $get[$i]['cob_activity'] ?></td>
-                                    <td class="text-center"><?php echo $get[$i]['cob_related_use'] ?> </td>
-                                    <td class="text-center"><?php echo $get[$i]['cob_other_info'] ?></td>
+                                    <td class="text-center"><?php echo $data[$i]['cob_activity'] ?></td>
+                                    <td class="text-center"><?php echo $data[$i]['cob_related_use'] ?> </td>
+                                    <td class="text-center"><?php echo $data[$i]['cob_other_info'] ?></td>
+                                    <td class="text-center"><?php echo $data[$i]['cob_remark'] ?></td>
                                 <?php }
                                 ?>
                                 <?php
-                                if ($title == 'LUMPSUM' || $title == 'SIP' || $title == 'REDEMPTION' || $title == 'COB') { ?>
-                                    <td class="text-center"><?php echo $reject ?></td>
+                                if ($title == 'LUMPSUM' || $title == 'SIP' || $title == 'REDEMPTION') { ?>
+                                    <td class="text-center"><?php echo $reject_name ?></td>
                                 <?php }
                                 ?>
 
@@ -441,6 +469,7 @@
             </div>
         </div>
     </div>
+
 
 
 

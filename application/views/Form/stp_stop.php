@@ -28,6 +28,8 @@ $title = '';
     <div id="content">
 
         <div class="container mt-3">
+            <div class="alert text-center text-white" id="form_submition_alert" style="display:none;width:100%;font-size:14px; height:20px'" role="alert">sdd
+            </div>
             <div class="card">
                 <h6 class="text-center rounded card_heading" id="card_heading" style="font-size: 15px;"><?php echo $data ?></h6>
                 <div class="card-body">
@@ -50,7 +52,7 @@ $title = '';
                             <div class="col-md-3 col-sm-12">
                                 <label for="stp_stop_month">Month</label>
                                 <select class="form-select form-select-sm mt-1" name="stp_stop_month" id="stp_stop_month" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <?php
                                     for ($i = 0; $i < count($month); $i++) { ?>
                                         <option value="<?php echo $month[$i] ?>"><?php echo $month[$i] ?></option>
@@ -63,7 +65,7 @@ $title = '';
                             <div class="col-md-3 col-sm-12">
                                 <label for="stp_stop_of_on">On/Off</label>
                                 <select class="form-select form-select-sm mt-1" name="stp_stop_of_on" id="stp_stop_of_on" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <option value="OFF">OFF</option>
                                     <option value="ON">ON</option>
                                 </select>
@@ -81,7 +83,7 @@ $title = '';
                                 <label for="stp_stop_l_e">L/E</label>
                                 <?php $l_e_arr = array('L2E', 'E2E') ?>
                                 <select class="form-select form-select-sm mt-1" name="stp_stop_l_e" id="stp_stop_l_e" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <?php
                                     for ($i = 0; $i < count($l_e_arr); $i++) { ?>
                                         <option value="<?php echo $l_e_arr[$i] ?>"><?php echo $l_e_arr[$i] ?></option>
@@ -112,17 +114,26 @@ $title = '';
                                 <input class="form-control form-control-sm mt-1" type="text" name="stp_stop_amount" id="stp_stop_amount">
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
-                                <label for="stp_stop_remark">Remark </label>
-                                <input class="form-control form-control-sm mt-1" type="text" name="stp_stop_remark" id="stp_stop_remark">
+                                <label for="stp_stop_remark">Remark</label>
+                                <select class="form-select form-select-sm mt-1" name="stp_stop_remark" id="stp_stop_remark" aria-label=".form-select-sm example">
+                                    <option value="">Choose</option>
+                                    <option value="Clear">Clear</option>
+                                    <option value="Reject">Reject</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 col-sm-12 mt-3">
+                                <label for="stp_stop_remark_reason">Remark Reason </label>
+                                <input class="form-control form-control-sm mt-1" type="text" name="stp_stop_remark_reason" id="stp_stop_remark_reason">
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="stp_stop_done_ok">Ok</label>
                                 <select class="form-select form-select-sm mt-1" name="stp_stop_done_ok" id="stp_stop_done_ok" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <option value="Ok">Ok</option>
-                                    <option value="Blank">Blank</option>
                                 </select>
                             </div>
+
+
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="stp_stop_rm_name">RM Name</label>
                                 <input class="form-control form-control-sm mt-1" type="text" name="stp_stop_rm_name" id="stp_stop_rm_name">
@@ -159,7 +170,15 @@ $title = '';
             data: $("#<?php echo $data . 'Form' ?>").serialize(),
             dataType: "json",
             success: function(data) {
-                console.log(data);
+                if (data.status) {
+                    Call_alert('form_submition_alert', data.message, data.class);
+                    $("#<?php echo $data . 'Form' ?>")[0].reset()
+                    setInterval(function() {
+                        window.location.reload()
+                    }, 1500)
+                } else {
+                    Call_alert('form_submition_alert', data.message, data.class);
+                }
             }
         });
     })

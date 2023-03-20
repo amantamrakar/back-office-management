@@ -28,6 +28,8 @@
 <body>
     <div id="content">
         <div class="container mt-3">
+            <div class="alert text-center text-white" id="form_submition_alert" style="display:none;width:100%;font-size:14px; height:20px'" role="alert">sdd
+            </div>
             <div class="card">
                 <h6 class="text-center rounded card_heading" id="card_heading" style="font-size: 15px;"><?php echo $data ?></h6>
                 <div class="card-body">
@@ -95,7 +97,6 @@
                                 <select class="form-select form-select-sm mt-1" name="swp_done_ok" id="swp_done_ok" aria-label=".form-select-sm example">
                                     <option>Choose</option>
                                     <option value="Ok">Ok</option>
-                                    <option value="Blank">Blank</option>
                                 </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
@@ -108,14 +109,17 @@
                             </div>
 
                             <div class="col-md-3 col-sm-12 mt-3">
-                                <label for="swp_duration">Duration</label>
+                                <label for="swp_duration">Duration/Remark</label>
                                 <select class="form-select form-select-sm mt-1" name="swp_duration" id="swp_duration" aria-label=".form-select-sm example">
-                                    <option>Choose</option>
+                                    <option value="">choose</option>
                                     <option value="Monthly">Monthly</option>
+                                    <option value="Quaterly">Quaterly</option>
+                                    <option value="Weekly">Weekly</option>
+                                    <option value="Reject">Reject</option>
                                 </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
-                                <label for="swp_no_head">RM Name</label>
+                                <label for="swp_rm_name">No Head</label>
                                 <select class="form-select form-select-sm mt-1" name="swp_rm_name" id="swp_rm_name" aria-label=".form-select-sm example">
                                     <option>Choose</option>
                                     <option value="NG">NG</option>
@@ -155,7 +159,15 @@
             data: $("#<?php echo $data . 'Form' ?>").serialize(),
             dataType: "json",
             success: function(data) {
-                console.log(data);
+                if (data.status) {
+                    Call_alert('form_submition_alert', data.message, data.class);
+                    $("#<?php echo $data . 'Form' ?>")[0].reset()
+                    setInterval(function() {
+                        window.location.reload()
+                    }, 1500)
+                } else {
+                    Call_alert('form_submition_alert', data.message, data.class);
+                }
             }
         });
     })

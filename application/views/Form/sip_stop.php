@@ -27,6 +27,8 @@ $title = '';
 <body>
     <div id="content">
         <div class="container mt-3">
+            <div class="alert text-center text-white" id="form_submition_alert" style="display:none;width:100%;font-size:14px; height:20px'" role="alert">sdd
+            </div>
             <div class="card">
                 <h6 class="text-center rounded card_heading" id="card_heading" style="font-size: 15px;"><?php echo $data ?></h6>
                 <div class="card-body">
@@ -49,7 +51,7 @@ $title = '';
                             <div class="col-md-3 col-sm-12">
                                 <label for="sip_stop_month">Month</label>
                                 <select class="form-select form-select-sm mt-1" name="sip_stop_month" id="sip_stop_month" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <?php
                                     for ($i = 0; $i < count($month); $i++) { ?>
                                         <option value="<?php echo $month[$i] ?>"><?php echo $month[$i] ?></option>
@@ -62,7 +64,7 @@ $title = '';
                             <div class="col-md-3 col-sm-12">
                                 <label for="sip_stop_of_on">On/Off</label>
                                 <select class="form-select form-select-sm mt-1" name="sip_stop_of_on" id="sip_stop_of_on" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <option value="ON">On</option>
                                     <option value="OFF">Off</option>
                                 </select>
@@ -71,7 +73,7 @@ $title = '';
                                 <label for="sip_stop_client_name">Client Name</label>
                                 <input class="form-control form-control-sm mt-1" type="text" name="sip_stop_client_name" id="sip_stop_client_name">
                             </div>
-                            
+
 
                             <!-- Change "for" and "id" from "sip_stop_fund_name" to "sip_stop_fund" -->
                             <div class="col-md-3 col-sm-12 mt-3">
@@ -102,15 +104,22 @@ $title = '';
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="sip_stop_done_ok">Ok</label>
                                 <select class="form-select form-select-sm mt-1" name="sip_stop_done_ok" id="sip_stop_done_ok" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option value="">Choose</option>
                                     <option value="Ok">Ok</option>
-                                    <option value="Blank">Blank</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 col-sm-12 mt-3">
+                                <label for="sip_stop_remark">Remark</label>
+                                <select class="form-select form-select-sm mt-1" name="sip_stop_remark" id="sip_stop_remark" aria-label=".form-select-sm example">
+                                    <option value="">Choose</option>
+                                    <option value="Clear">Clear</option>
+                                    <option value="Reject">Reject</option>
                                 </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="sip_stop_rm_name">RM Name</label>
                                 <input class="form-control form-control-sm mt-1" type="text" name="sip_stop_rm_name" id="sip_stop_rm_name">
-                            </div> 
+                            </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="sip_stop_pouse_date_from">SIP Pause </label>
                                 <input class="form-control form-control-sm mt-1" type="text" name="sip_stop_pause" id="sip_stop_pause">
@@ -151,7 +160,15 @@ $title = '';
             data: $("#<?php echo $data . 'Form' ?>").serialize(),
             dataType: "json",
             success: function(data) {
-                console.log(data);
+                if (data.status) {
+                    Call_alert('form_submition_alert', data.message, data.class);
+                    $("#<?php echo $data . 'Form' ?>")[0].reset()
+                    setInterval(function() {
+                        window.location.reload()
+                    }, 1500)
+                } else {
+                    Call_alert('form_submition_alert', data.message, data.class);
+                }
             }
         });
     })

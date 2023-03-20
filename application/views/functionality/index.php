@@ -55,10 +55,10 @@
 
                         <thead class="bg-dark text-white">
                             <tr class="text-center">
-                                <th class="text-center">S.No.</th>
+                                <th class="text-center">Count</th>
                                 <th class="text-center">Date</th>
                                 <th class="text-center">Month</th>
-                                <th class="text-center">Number</th>
+                                <th class="text-center">Series</th>
                                 <th class="text-center">On / Off</th>
                                 <th class="text-center">Client Name</th>
                                 <?php
@@ -75,6 +75,7 @@
                                     <th class="text-center">Pan No.</th>
                                 <?php }
                                 ?>
+                                <!-- <th class="text-center">Reject</th> -->
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
@@ -82,10 +83,50 @@
 
                         <tbody>
                             <?php
+
                             $j = 1;
                             for ($i = 0; $i < count($get); $i++) {
                             ?>
-                                <tr>
+                                <?php
+                                $reject = '';
+                                $style = '';
+                                $reject_name = '';
+                                if ($title == 'LUMPSUM') {
+                                    $reject =  $get[$i]['lum_remark'];
+                                    $reject_name =  $get[$i]['lum_rejection'];
+                                } elseif ($title == 'SIP') {
+                                    $reject =  $get[$i]['sip_remark'];
+                                    $reject_name = $get[$i]['sip_remark_content'];
+                                } elseif ($title == 'REDEMPTION') {
+                                    $reject =  $get[$i]['redem_remark'];
+                                    $reject_name =  $get[$i]['redem_reason_rejection'];
+                                } elseif ($title == 'SWITCH') {
+                                    $reject = $get[$i]['switch_remark'];
+                                } elseif ($title == 'STP') {
+                                    $reject =  $get[$i]['stp_remark'];
+                                } elseif ($title == 'SWP') {
+                                    $reject = $get[$i]['swp_duration'];
+                                } elseif ($title == 'COB') {
+                                    $reject = $get[$i]['cob_remark'];
+                                    $reject_name = $get[$i]['cob_remark'];
+                                } elseif ($title == 'SIP-STOP') {
+                                    $reject =  $get[$i]['sip_stop_remark'];
+                                    $reject_name =  $get[$i]['sip_stop_remark'];
+                                } elseif ($title == 'STP-STOP') {
+                                    $reject = $get[$i]['stp_stop_remark'];
+                                    $reject_name = $get[$i]['stp_stop_remark'];
+                                } elseif ($title == 'SWP-STOP') {
+                                    $reject = $get[$i]['swp_stop_remark'];
+                                    $reject_name = $get[$i]['swp_stop_remark'];
+                                }
+
+                                if ($reject == 'Reject') {
+                                    $style = "background:rgba(255, 136, 136, 0.59)";
+                                } elseif ($reject == 'Choose' || empty($reject)) {
+                                    $style = "background:rgb(224 235 63 / 59%)";
+                                }
+                                ?>
+                                <tr style="<?php echo $style ?>">
                                     <td class="text-center"><?php echo $j ?></td>
                                     <td class="text-center"><?php echo $get[$i]['' . $tag . '_date'] ?></td>
                                     <td class="text-center"><?php echo $get[$i]['' . $tag . '_month'] ?></td>
@@ -125,6 +166,7 @@
                                         <td class="text-center"><?php echo $get[$i]['' . $tag . '_pan_no'] ?></td>
                                     <?php }
                                     ?>
+                                    <!-- <td class="text-center"><?php echo $reject ?></td> -->
                                     <td class="text-center">
                                         <button type="button" data-update_id="<?php echo $get[$i]['id'] ?>" data-form_type="<?php echo $title ?>" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-primary btn-sm update_btn" style="font-size: 10px;">Update</button>
                                     </td>
@@ -140,10 +182,10 @@
                     } else if ($title == 'COB') { ?>
                         <thead class="bg-dark text-white">
                             <tr class="text-center">
-                                <th class="text-center">S.No.</th>
+                                <th class="text-center">Count</th>
                                 <th class="text-center">Date</th>
                                 <th class="text-center">Month</th>
-                                <th class="text-center">Number</th>
+                                <th class="text-center">Series</th>
                                 <th class="text-center">On / Off</th>
                                 <th class="text-center">Client Name</th>
                                 <th class="text-center">Activity</th>
@@ -156,10 +198,44 @@
 
                         <tbody>
                             <?php
+
+
+
+
                             $j = 1;
                             for ($i = 0; $i < count($get); $i++) {
+                                $reject = '';
+                                $style = '';
+                                if ($title == 'LUMPSUM') {
+                                    $reject =  $get[$i]['lum_rejection'];
+                                    $reject2 =  $get[$i]['lum_remark'];
+                                } elseif ($title == 'SIP') {
+                                    $reject = $get[$i]['sip_remark_content'];
+                                } elseif ($title == 'REDEMPTION') {
+                                    $reject =  $get[$i]['redem_reason_rejection'];
+                                    $reject2 =  $get[$i]['redem_remark'];
+                                } elseif ($title == 'SWITCH') {
+                                    $reject = '';
+                                    $reject2 =  $get[$i]['switch_remark'];
+                                } elseif ($title == 'STP') {
+                                    $reject = '';
+                                } elseif ($title == 'SWP') {
+                                    $reject = '';
+                                } elseif ($title == 'COB') {
+                                    $reject = $get[$i]['cob_remark'];
+                                } elseif ($title == 'SIP-STOP') {
+                                    $reject =  '';
+                                } elseif ($title == 'STP-STOP') {
+                                    $reject = '';
+                                } elseif ($title == 'SWP-STOP') {
+                                    $reject = '';
+                                }
+
+                                if (!empty($reject) || $reject2 == 'Reject') {
+                                    $style = "background:rgba(255, 136, 136, 0.59)";
+                                }
                             ?>
-                                <tr>
+                                <tr style="<?php echo $style ?>">
                                     <td class="text-center"><?php echo $j ?></td>
                                     <td class="text-center"><?php echo $get[$i]['' . $tag . '_date'] ?></td>
                                     <td class="text-center"><?php echo $get[$i]['' . $tag . '_month'] ?></td>
@@ -202,6 +278,9 @@
                         <h1 class="modal-title fs-5" id="staticBackdropLabel" style="margin-left: 10px;">Update <?php echo $title ?></h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+                    <div class="container mt-3">
+                        <div class="alert text-center text-white" id="form_submition_alert" style="display:none;width:100%;font-size:14px; height:20px'" role="alert"> </div>
+                    </div>
                     <form action="" id="update_form">
                         <div class="modal-body" id="update_content">
 
@@ -216,6 +295,7 @@
 
     </body>
     <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url('asset/js/alert.js') ?>"></script>
     <script>
         $(document).ready(function() {
             $("#update_delete_table").DataTable({
@@ -248,7 +328,11 @@
                 data: $('#update_form').serialize(),
                 dataType: "json",
                 success: function(data) {
-                    console.log(data);
+                    if (data.status) {
+                        Call_alert('form_submition_alert', data.message, data.class);
+                    } else {
+                        Call_alert('form_submition_alert', data.message, data.class);
+                    }
                 }
             });
         })
