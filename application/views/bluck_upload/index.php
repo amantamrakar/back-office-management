@@ -31,9 +31,12 @@ $title = '';
     </head>
 
     <body>
+        <?php include_once('./asset/modal_alert.php'); ?>
         <?php
         $nav_arr = array('LUMPSUM', 'SIP', 'REDEMPTION', 'SWITCH', 'STP',  'SWP', 'SIP-STOP', 'STP-STOP', 'SWP-STOP', 'COB');
         ?>
+        <div class="loader" id="loader_ajao">
+        </div>
         <div class="container mt-4">
             <div class="card">
                 <div class="card-body">
@@ -82,11 +85,16 @@ $title = '';
     </body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="<?php echo base_url('asset/js/jquery.js') ?>">
-    </script>
+    <script src="<?php echo base_url('asset/js/jquery.js') ?>"></script>
+    <script src="<?php echo base_url('asset/modal_alert.js') ?>"></script>
     <script>
+        $("#modal_hide").click(function() {
+            $('#alert_modal').fadeOut("modal");
+        })
+
         $("#upload_excel").submit(function(e) {
             e.preventDefault();
+            $("#loader_ajao").show();
             var form_data = new FormData(this);
             $.ajax({
                 type: "post",
@@ -98,10 +106,16 @@ $title = '';
                 enctype: 'multipart/form-data',
                 dataType: "json",
                 success: function(data) {
-                    console.log(data);
+                    if (data.status) {
+                        Call_modal_alert('alert_modal', data.message, data.class);
+                        $("#loader_ajao").hide();
+                    } else {
+                        Call_modal_alert('alert_modal', data.message, data.class);
+                    }
                 }
             });
         })
+
         $(".download_excel").on("click", function() {
             var name = $(this).data("filename");
             $.ajax({
@@ -111,14 +125,12 @@ $title = '';
                     key_name: name,
                 },
                 success: function(data) {
-                    
+
                 }
             })
 
         })
     </script>
-    <script>
-    </script>
-    </script>
+
 
 </html>

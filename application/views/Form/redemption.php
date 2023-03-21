@@ -27,6 +27,8 @@ $title = '';
 <body>
     <div id="content">
         <div class="container mt-3">
+            <div class="alert text-center text-white" id="form_submition_alert" style="display:none;width:100%;font-size:14px; height:20px'" role="alert">sdd
+            </div>
             <div class="card">
                 <h6 class="text-center rounded card_heading" id="card_heading" style="font-size: 15px;"><?php echo $data ?></h6>
                 <div class="card-body">
@@ -39,7 +41,7 @@ $title = '';
                             <input class="form-control form-control-sm mt-1" type="text" name="YmFzZTY0IGRlY29kZXI=" value="<?php echo base64_encode($data) ?>" id="" hidden>
                             <div class="col-md-3 col-sm-12">
                                 <label for="redem_date">Date</label>
-                                <input class="form-control form-control-sm mt-1" type="date" name="redem_date" id="redem_date">
+                                <input class="form-control form-control-sm mt-1" type="date" name="redem_date" id="redem_date" required>
                             </div>
                             <div class="col-md-3 col-sm-12">
                                 <label for="redem_s_no">S.No.</label>
@@ -48,7 +50,7 @@ $title = '';
                             <div class="col-md-3 col-sm-12">
                                 <label for="redem_month">Month</label>
                                 <select class="form-select form-select-sm mt-1" name="redem_month" id="redem_month" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <?php
                                     for ($i = 0; $i < count($month); $i++) { ?>
                                         <option value="<?php echo $month[$i] ?>"><?php echo $month[$i] ?></option>
@@ -62,14 +64,14 @@ $title = '';
                             <div class="col-md-3 col-sm-12">
                                 <label for="redem_of_on">On/Off</label>
                                 <select class="form-select form-select-sm mt-1" name="redem_of_on" id="redem_of_on" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <option value="ON">ON</option>
                                     <option value="OFF">OFF</option>
                                 </select>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="redem_client_name">Client Name</label>
-                                <input class="form-control form-control-sm mt-1" type="text" name="redem_client_name" id="redem_client_name">
+                                <input class="form-control form-control-sm mt-1" type="text" name="redem_client_name" id="redem_client_name" required>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="redem_fund">Fund Name</label>
@@ -89,7 +91,7 @@ $title = '';
                                 $mop_arr = array('CHEQUE', 'NEFT', 'RTGS', 'DC');
                                 ?>
                                 <select class="form-select form-select-sm mt-1" name="redem_mode_of_pay" id="redem_mode_of_pay" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <?php
                                     for ($i = 0; $i < count($mop_arr); $i++) { ?>
                                         <option value="<?php echo $mop_arr[$i] ?>"><?php echo $mop_arr[$i] ?></option>
@@ -101,24 +103,24 @@ $title = '';
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="redem_bank_name">Bank Name</label>
-                                <input class="form-control form-control-sm mt-1" type="text" name="redem_bank_name" id="redem_bank_name">
+                                <input class="form-control form-control-sm mt-1" type="text" name="redem_bank_name" id="redem_bank_name" required>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="redem_account_no">Account No.</label>
-                                <input class="form-control form-control-sm mt-1" type="text" name="redem_account_no" id="redem_account_no">
+                                <input class="form-control form-control-sm mt-1" type="text" name="redem_account_no" id="redem_account_no" required>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="redem_folio_no">Folio No.</label>
-                                <input class="form-control form-control-sm mt-1" type="text" name="redem_folio_no" id="redem_folio_no">
+                                <input class="form-control form-control-sm mt-1" type="text" name="redem_folio_no" id="redem_folio_no" required>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="redem_amount">Amount</label>
-                                <input class="form-control form-control-sm mt-1" type="text" name="redem_amount" id="redem_amount">
+                                <input class="form-control form-control-sm mt-1" type="text" name="redem_amount" id="redem_amount" required>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="redem_done_ok">Ok</label>
                                 <select class="form-select form-select-sm mt-1" name="redem_done_ok" id="redem_done_ok" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <option value="Ok">Ok</option>
                                 </select>
                             </div>
@@ -126,7 +128,7 @@ $title = '';
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="redem_remark">Remark</label>
                                 <select class="form-select form-select-sm mt-1" name="redem_remark" id="redem_remark" aria-label=".form-select-sm example">
-                                    <option  >Choose</option>
+                                    <option>Choose</option>
                                     <option value="Clear">Clear</option>
                                     <option value="Reject">Reject</option>
                                 </select>
@@ -185,9 +187,18 @@ $title = '';
 
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+ <!-- ---------alert--- -->
+ <?php include_once('./asset/modal_alert.php'); ?>
+ <?php modal_alert('alert_modal') ?>
+    <!-- ---------alert--- -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="<?php echo base_url('asset/modal_alert.js') ?>"></script>
 <script>
+      $("#modal_hide").click(function() {
+            $('#alert_modal').fadeOut("modal");
+        })
     $("#<?php echo $data . 'Form' ?>").submit(function(e) {
         e.preventDefault();
         $.ajax({
@@ -196,7 +207,15 @@ $title = '';
             data: $("#<?php echo $data . 'Form' ?>").serialize(),
             dataType: "json",
             success: function(data) {
-                console.log(data);
+                if (data.status) {
+                        Call_modal_alert('alert_modal', data.message, data.class);
+                        $("#<?php echo $data . 'Form' ?>")[0].reset()
+                        setInterval(function() {
+                            window.location.reload()
+                        }, 1500)
+                    } else {
+                        Call_modal_alert('alert_modal', data.message, data.class);
+                    }
             }
         });
     })

@@ -3,6 +3,8 @@ $nav_arr = array('LUMPSUM', 'SIP', 'REDEMPTION', 'SWITCH', 'STP',  'SWP', 'SIP-S
 $image = array('LUMPSUM_Modified.png', 'SIP_Modified.png', 'REDEMPTION_Modified.png', 'SWITCH_Modified.png', 'STP_Modified.png',  'SWP_Modified.png', 'STOP_SIP_Modified.png', 'STOP-STP_Modified.png', 'STOP_SWP_Modified.png', 'COB_Modified.png');
 // echo $_GET['form'];
 ?>
+<div class="loader" id="loader_ajao">
+</div>
 <div class="container-fluid mt-3">
     <div class="row text-center">
         <div class="col-lg-1 col-md-1 col-sm-12"></div>
@@ -62,6 +64,7 @@ $image = array('LUMPSUM_Modified.png', 'SIP_Modified.png', 'REDEMPTION_Modified.
 <script src="<?php echo base_url('asset/js/jquery.js') ?>"></script>
 <script>
     function before_load() {
+        $("#loader_ajao").show();
         var F = $('.form_type').data("form_value");
         $.ajax({
             type: "post",
@@ -71,6 +74,7 @@ $image = array('LUMPSUM_Modified.png', 'SIP_Modified.png', 'REDEMPTION_Modified.
             },
             success: function(data) {
                 $("#content").html(data);
+                $("#loader_ajao").hide();
             }
         });
     }
@@ -80,6 +84,7 @@ $image = array('LUMPSUM_Modified.png', 'SIP_Modified.png', 'REDEMPTION_Modified.
 
 
     $(".form_type").click(function(e) {
+        $("#loader_ajao").show();
         var F = $(this).data("form_value");
         if (F == 'STP-STOP') {
             F = 'STP_STOP';
@@ -96,6 +101,7 @@ $image = array('LUMPSUM_Modified.png', 'SIP_Modified.png', 'REDEMPTION_Modified.
             },
             success: function(data) {
                 $("#content").html(data);
+                $("#loader_ajao").hide();
             }
         });
     })

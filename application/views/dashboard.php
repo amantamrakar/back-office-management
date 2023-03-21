@@ -25,8 +25,8 @@
     // echo $session_id;
 
     $box_array = array('Form', 'View Data', 'update/delete','Bluk Upload','Show Data With Filter');
-    $image_box = array('FORM.png', 'View-Data.png', 'UPDATE.png', 'Bluk-Upload.png','View-Data.png');
-    $Link = array('all_form_structure','show_all_data','Update_delete_data','bluk_upload','filteration');
+    $image_box = array('FORM.png', 'View-Data.png', 'Update.png', 'Bluk-Upload.png','View-Data.png');
+    $Link = array('Allforms','ShowData','UpdateDelete','BluckUpload','Filteration');
     ?>
     <div class="container mt-5">
         <div class="row mt-5">

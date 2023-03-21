@@ -21,9 +21,12 @@
 </head>
 
 <body>
+    <?php include_once('./asset/modal_alert.php'); ?>
+    <div class="loader" id="loader_ajao"></div>
     <div id="content">
         <div class="container mt-3">
-
+            <div class="alert text-center text-white" id="form_submition_alert" style="display:none;width:100%;font-size:14px; height:20px'" role="alert">sdd
+            </div>
             <div class="card">
                 <h6 class="text-center rounded card_heading" id="card_heading" style="font-size: 15px;"><?php echo $data ?></h6>
                 <div class="card-body">
@@ -37,7 +40,7 @@
 
                             <div class="col-md-3 col-sm-12">
                                 <label for="cob_date">Date</label>
-                                <input class="form-control form-control-sm mt-1" type="date" name="cob_date" id="cob_date">
+                                <input class="form-control form-control-sm mt-1" type="date" name="cob_date" id="cob_date" required>
                             </div>
                             <div class="col-md-3 col-sm-12">
                                 <label for="cob_s_no">S.No.</label>
@@ -67,7 +70,7 @@
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="cob_client_name">Client Name</label>
-                                <input class="form-control form-control-sm mt-1" type="text" name="cob_client_name" id="cob_client_name">
+                                <input class="form-control form-control-sm mt-1" type="text" name="cob_client_name" id="cob_client_name" required>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="cob_activity">Activity</label>
@@ -84,7 +87,7 @@
 
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="cob_folio_no">Folio No.</label>
-                                <input class="form-control form-control-sm mt-1" type="text" name="cob_folio_no" id="cob_folio_no">
+                                <input class="form-control form-control-sm mt-1" type="text" name="cob_folio_no" id="cob_folio_no" required>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="cob_done_ok">Status/OK</label>
@@ -127,10 +130,17 @@
     </div>
 
 </body>
+ <!-- ---------alert--- -->
+ <?php modal_alert('alert_modal') ?>
+    <!-- ---------alert--- -->
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="<?php echo base_url('asset/modal_alert.js') ?>"></script>
 <script>
+    $("#modal_hide").click(function() {
+        $('#alert_modal').fadeOut("modal");
+    })
     $("#<?php echo $data . 'Form' ?>").submit(function(e) {
         e.preventDefault();
         $.ajax({
@@ -139,7 +149,15 @@
             data: $("#<?php echo $data . 'Form' ?>").serialize(),
             dataType: "json",
             success: function(data) {
-                console.log(data);
+                if (data.status) {
+                    Call_modal_alert('alert_modal', data.message, data.class);
+                    $("#<?php echo $data . 'Form' ?>")[0].reset()
+                    setInterval(function() {
+                        window.location.reload()
+                    }, 1500)
+                } else {
+                    Call_modal_alert('alert_modal', data.message, data.class);
+                }
             }
         });
     })

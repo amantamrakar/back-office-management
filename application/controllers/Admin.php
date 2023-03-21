@@ -13,7 +13,7 @@ class Admin extends CI_Controller
 
 	function index()
 	{
-		$this->load->view('Login_page');
+		$this->load->view('login_page');
 	}
 
 	function login_validation()

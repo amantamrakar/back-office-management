@@ -21,7 +21,7 @@ class Forms extends CI_Controller
 		}
 	}
 
-	public function all_form_structure()
+	public function Allforms()
 	{
 
 		if ($this->session->userdata('id')) {
@@ -247,7 +247,7 @@ class Forms extends CI_Controller
 	}
 
 
-	public function Update_delete_data()
+	public function UpdateDelete()
 	{
 		if ($this->session->userdata('id') != '') {
 			$data['page_title'] = 'Update Delete Data';
@@ -264,10 +264,10 @@ class Forms extends CI_Controller
 			redirect(base_url() . 'admin/index');
 		}
 	}
-	public function show_all_data()
+	public function ShowData()
 	{
 		if ($this->session->userdata('id') != '') {
-			$data['page_title'] = 'Update Delete Data';
+			$data['page_title'] = 'Show Data';
 			$session_name = $this->session->userdata('name');
 			$session_id = $this->session->userdata('id');
 			$session_data = array(
@@ -276,7 +276,7 @@ class Forms extends CI_Controller
 			);
 			$this->session->set_userdata($session_data);
 			$this->load->view('modules/nav_bar', $session_data);
-			$this->load->view('show_data/nav', $data);
+			$this->load->view('ShowData/nav', $data);
 		} else {
 			redirect(base_url() . 'admin/index');
 		}
@@ -286,12 +286,11 @@ class Forms extends CI_Controller
 	{
 		$filename = $this->input->post('key_name');
 		$filename = $filename . '.xlsx';
-		$file_url = base_url().'asset/Excel/'.$filename;
+		$file_url = base_url() . 'asset/Excel/' . $filename;
 		header('Content-Type: application/octet-stream');
 		header("Content-Transfer-Encoding: utf-8");
 		header("Content-disposition: attachment; filename=$filename");
 		readfile($file_url);
-		
 	}
 	public function Filteration()
 	{
@@ -305,7 +304,7 @@ class Forms extends CI_Controller
 			);
 			$this->session->set_userdata($session_data);
 			$this->load->view('modules/nav_bar', $session_data);
-			$this->load->view('filter_data/index.php', $data);
+			$this->load->view('Filter_Data/index', $data);
 		} else {
 			redirect(base_url() . 'admin/index');
 		}

@@ -16,6 +16,11 @@
 </head>
 
 <body>
+    <?php include_once('./asset/modal_alert.php'); ?>
+    <div class="loader" id="loader_ajao">
+        
+    </div>
+    
     <?php
     $table = array('LUMPSUM', 'SIP', 'REDEMPTION', 'SWITCH', 'STP',  'SWP', 'SIP-STOP', 'STP-STOP', 'SWP-STOP', 'COB');
     ?>
@@ -68,18 +73,22 @@
                                     <label for="inputEmail3" class="col-sm-4 col-form-label">Reject : </label>
                                     <div class="col-sm-8">
                                         <div class="row">
-                                            <div class="form-check col-2">
+                                            <div class="form-check col-2" style="font-size: 10px;">
                                                 <input type="radio" class="btn-check" name="reject_status" value="All" id="p-outlined" autocomplete="off" checked>
                                                 <label class="btn btn-outline-primary btn-sm" for="p-outlined">All</label>
                                             </div>
-                                            <div class="form-check col-4">
+                                            <div class="form-check col-3" style="font-size: 10px;">
                                                 <input type="radio" class="btn-check" name="reject_status" value="Yes" id="success-outlined" autocomplete="off">
                                                 <label class="btn btn-outline-primary btn-sm" for="success-outlined">Rejected</label>
                                             </div>
-                                            <div class="form-check col-6">
+                                            <div class="form-check col-4" style="font-size: 10px;">
                                                 <input type="radio" class="btn-check" name="reject_status" value="No" id="danger-outlined" autocomplete="off">
-                                                <label class="btn btn-outline-primary btn-sm" for="danger-outlined">Non- Rejected</label>
+                                                <label class="btn btn-outline-primary btn-sm" for="danger-outlined">Non-Rejected</label>
                                             </div>
+                                            <!-- <div class="form-check col-3" style="font-size: 10px;">
+                                                <input type="radio" class="btn-check" name="reject_status" value="Pending" id="danger" autocomplete="off">
+                                                <label class="btn btn-outline-primary btn-sm" for="danger">Pending</label>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
@@ -100,23 +109,23 @@
                                     <label for="filter_by_years" class="col-sm-4 col-form-label">Filter By Year :</label>
                                     <div class="col-sm-8">
                                         <select type="text" class="form-select form-select-sm"  name="filter_by_years" id="filter_by_years" >
-                                            <option value="0">Choose</option>
-                                            <option value="2015-2016">2015-2016</option>
-                                            <option value="2016-2017">2016-2017</option>
-                                            <option value="2017-2018">2017-2018</option>
-                                            <option value="2018-2019">2018-2019</option>
-                                            <option value="2019-2020">2019-2020</option>
-                                            <option value="2020-2021">2020-2021</option>
-                                            <option value="2021-2022">2021-2022</option>
-                                            <option value="2022-2023">2022-2023</option>
-                                            <option value="2023-2024">2023-2024</option>
-                                            <option value="2024-2025">2024-2025</option>
-                                            <option value="2025-2026">2025-2026</option>
-                                            <option value="2026-2027">2026-2027</option>
-                                            <option value="2027-2028">2027-2028</option>
-                                            <option value="2028-2029">2028-2029</option>
-                                            <option value="2029-2030">2029-2030</option>
-                                            <option value="2030-2031">2030-2031</option>
+                                            <option selected value="0">Choose</option>
+                                            <option value="2015-01-01 / 2016-12-30">2015-2016</option>
+                                            <option value="2016-01-01 / 2017-12-30">2016-2017</option>
+                                            <option value="2017-01-01 / 2018-12-30">2017-2018</option>
+                                            <option value="2018-01-01 / 2019-12-30">2018-2019</option>
+                                            <option value="2019-01-01 / 2020-12-30">2019-2020</option>
+                                            <option value="2020-01-01 / 2021-12-30">2020-2021</option>
+                                            <option value="2021-01-01 / 2022-12-30">2021-2022</option>
+                                            <option value="2022-01-01 / 2023-12-30">2022-2023</option>
+                                            <option value="2023-01-01 / 2024-12-30">2023-2024</option>
+                                            <option value="2024-01-01 / 2025-12-30">2024-2025</option>
+                                            <option value="2025-01-01 / 2026-12-30">2025-2026</option>
+                                            <option value="2026-01-01 / 2027-12-30">2026-2027</option>
+                                            <option value="2027-01-01 / 2028-12-30">2027-2028</option>
+                                            <option value="2028-01-01 / 2029-12-30">2028-2029</option>
+                                            <option value="2029-01-01 / 2030-12-30">2029-2030</option>
+                                            <option value="2030-01-01 / 2031-12-30">2030-2031</option>
                                         </select>
                                     </div>
                                 </div>
@@ -136,20 +145,39 @@
     </div>
     <div id="filter_data"></div>
 
+    <!-- ---------alert--- -->
+    <?php modal_alert('alert_modal') ?>
+    <!-- ---------alert--- -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url('asset/modal_alert.js') ?>"></script>
     <script>
+        $("#modal_hide").click(function() {
+            $('#alert_modal').fadeOut("modal");
+        })
+
+
         $("#filteration_form").submit(function(e) {
             e.preventDefault();
-            $.ajax({
-                type: "post",
-                url: "<?php echo base_url() . 'functionality/filteration' ?>",
-                data: $("#filteration_form").serialize(),
-                success: function(data) {
-                    $("#filter_data").html(data);
-                }
-            });
+            if ($('#excel_change').val() != 0) {
+                $('#loader_ajao').show();
+                $.ajax({
+                    type: "post",
+                    url: "<?php echo base_url() . 'functionality/filteration' ?>",
+                    data: $("#filteration_form").serialize(),
+                    success: function(data) {
+                        if(data){
+                            $("#filter_data").html(data);
+                        }else{
+                        }
+                        $('#loader_ajao').hide();
+                    }
+                });
+            } else {
+                Call_modal_alert('alert_modal', 'Please Select Excel Type', 'bg-danger')
+            }
         })
         $("#excel_change").change(function(e) {
             var name = $(this).find(":Selected").val();

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css">
 
 
+
 </head>
 
 <body>
@@ -23,6 +24,8 @@
     </head>
 
     <body>
+        <?php include_once('./asset/modal_alert.php'); ?>
+
         <?php
         $tag = '';
         if ($title == 'LUMPSUM') {
@@ -88,44 +91,44 @@
                             for ($i = 0; $i < count($get); $i++) {
                             ?>
                                 <?php
-                                 $reject = '';
-                                 $style = '';
-                                 $reject_name = '';
-                                 if ($title == 'LUMPSUM') {
-                                     $reject =  $get[$i]['lum_remark'];
-                                     $reject_name =  $get[$i]['lum_rejection'];
-                                 } elseif ($title == 'SIP') {
-                                     $reject =  $get[$i]['sip_remark'];
-                                     $reject_name = $get[$i]['sip_remark_content'];
-                                 } elseif ($title == 'REDEMPTION') {
-                                     $reject =  $get[$i]['redem_remark'];
-                                     $reject_name =  $get[$i]['redem_reason_rejection'];
-                                 } elseif ($title == 'SWITCH') {
-                                     $reject = $get[$i]['switch_remark'];
-                                 } elseif ($title == 'STP') {
-                                     $reject =  $get[$i]['stp_remark'];
-                                 } elseif ($title == 'SWP') {
-                                     $reject = $get[$i]['swp_duration'];
-                                 } elseif ($title == 'COB') {
-                                     $reject = $get[$i]['cob_remark'];
-                                     $reject_name = $get[$i]['cob_remark'];
-                                 } elseif ($title == 'SIP-STOP') {
-                                     $reject =  $get[$i]['sip_stop_remark'];
-                                     $reject_name =  $get[$i]['sip_stop_remark'];
-                                 } elseif ($title == 'STP-STOP') {
-                                     $reject = $get[$i]['stp_stop_remark'];
-                                     $reject_name = $get[$i]['stp_stop_remark'];
-                                 } elseif ($title == 'SWP-STOP') {
-                                     $reject = $get[$i]['swp_stop_remark'];
-                                     $reject_name = $get[$i]['swp_stop_remark'];
-                                 }
- 
-                                 if($reject == 'Reject'){
-                                     $style = "background:rgba(255, 136, 136, 0.59)";
-                                 }elseif($reject == 'Choose' || empty($reject) ){
-                                     $style = "background:rgb(224 235 63 / 59%)";
-                                 } 
-                                 ?>
+                                $reject = '';
+                                $style = '';
+                                $reject_name = '';
+                                if ($title == 'LUMPSUM') {
+                                    $reject =  $get[$i]['lum_remark'];
+                                    $reject_name =  $get[$i]['lum_rejection'];
+                                } elseif ($title == 'SIP') {
+                                    $reject =  $get[$i]['sip_remark'];
+                                    $reject_name = $get[$i]['sip_remark_content'];
+                                } elseif ($title == 'REDEMPTION') {
+                                    $reject =  $get[$i]['redem_remark'];
+                                    $reject_name =  $get[$i]['redem_reason_rejection'];
+                                } elseif ($title == 'SWITCH') {
+                                    $reject = $get[$i]['switch_remark'];
+                                } elseif ($title == 'STP') {
+                                    $reject =  $get[$i]['stp_remark'];
+                                } elseif ($title == 'SWP') {
+                                    $reject = $get[$i]['swp_duration'];
+                                } elseif ($title == 'COB') {
+                                    $reject = $get[$i]['cob_remark'];
+                                    $reject_name = $get[$i]['cob_remark'];
+                                } elseif ($title == 'SIP-STOP') {
+                                    $reject =  $get[$i]['sip_stop_remark'];
+                                    $reject_name =  $get[$i]['sip_stop_remark'];
+                                } elseif ($title == 'STP-STOP') {
+                                    $reject = $get[$i]['stp_stop_remark'];
+                                    $reject_name = $get[$i]['stp_stop_remark'];
+                                } elseif ($title == 'SWP-STOP') {
+                                    $reject = $get[$i]['swp_stop_remark'];
+                                    $reject_name = $get[$i]['swp_stop_remark'];
+                                }
+
+                                if ($reject == 'Reject') {
+                                    $style = "background:rgba(255, 136, 136, 0.59)";
+                                } elseif ($reject == 'Choose' || empty($reject)) {
+                                    $style = "background:rgb(224 235 63 / 59%)";
+                                }
+                                ?>
                                 <tr style="<?php echo $style ?>">
                                     <td class="text-center"><?php echo $j ?></td>
                                     <td class="text-center"><?php echo $get[$i]['' . $tag . '_date'] ?></td>
@@ -198,42 +201,42 @@
 
                         <tbody>
                             <?php
-                            
-                           
 
-                             
+
+
+
                             $j = 1;
                             for ($i = 0; $i < count($get); $i++) {
                                 $reject = '';
-                             $style = '';
-                             if ($title == 'LUMPSUM') {
-                                 $reject =  $get[$i]['lum_rejection'];
-                                 $reject2 =  $get[$i]['lum_remark'];
-                             } elseif ($title == 'SIP') {
-                                 $reject = $get[$i]['sip_remark_content'];
-                             } elseif ($title == 'REDEMPTION') {
-                                 $reject =  $get[$i]['redem_reason_rejection'];
-                                 $reject2 =  $get[$i]['redem_remark'];
-                             } elseif ($title == 'SWITCH') {
-                                 $reject = '';
-                                 $reject2 =  $get[$i]['switch_remark'];
-                             } elseif ($title == 'STP') {
-                                 $reject = '';
-                             } elseif ($title == 'SWP') {
-                                 $reject = '';
-                             } elseif ($title == 'COB') {
-                                 $reject = $get[$i]['cob_remark'];
-                             } elseif ($title == 'SIP-STOP') {
-                                 $reject =  '';
-                             } elseif ($title == 'STP-STOP') {
-                                 $reject = '';
-                             } elseif ($title == 'SWP-STOP') {
-                                 $reject = '';
-                             }
+                                $style = '';
+                                if ($title == 'LUMPSUM') {
+                                    $reject =  $get[$i]['lum_rejection'];
+                                    $reject2 =  $get[$i]['lum_remark'];
+                                } elseif ($title == 'SIP') {
+                                    $reject = $get[$i]['sip_remark_content'];
+                                } elseif ($title == 'REDEMPTION') {
+                                    $reject =  $get[$i]['redem_reason_rejection'];
+                                    $reject2 =  $get[$i]['redem_remark'];
+                                } elseif ($title == 'SWITCH') {
+                                    $reject = '';
+                                    $reject2 =  $get[$i]['switch_remark'];
+                                } elseif ($title == 'STP') {
+                                    $reject = '';
+                                } elseif ($title == 'SWP') {
+                                    $reject = '';
+                                } elseif ($title == 'COB') {
+                                    $reject = $get[$i]['cob_remark'];
+                                } elseif ($title == 'SIP-STOP') {
+                                    $reject =  '';
+                                } elseif ($title == 'STP-STOP') {
+                                    $reject = '';
+                                } elseif ($title == 'SWP-STOP') {
+                                    $reject = '';
+                                }
 
-                             if (!empty($reject) || $reject2 == 'Reject') {
-                                 $style = "background:rgba(255, 136, 136, 0.59)";
-                             } 
+                                if (!empty($reject) || $reject2 == 'Reject') {
+                                    $style = "background:rgba(255, 136, 136, 0.59)";
+                                }
                             ?>
                                 <tr style="<?php echo $style ?>">
                                     <td class="text-center"><?php echo $j ?></td>
@@ -265,34 +268,54 @@
                         </tbody>
 
                     <?php   }
+
                     ?>
                 </table>
             </div>
         </div>
 
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-fullscreen">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <img src="<?php echo base_url() . 'asset/image/LOGO ICON.png' ?>" alt="" srcset="" width="50">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel" style="margin-left: 10px;">Update <?php echo $title ?></h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form action="" id="update_form">
-                        <div class="modal-body" id="update_content">
+        <div id="mymodal">
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-fullscreen">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <img src="<?php echo base_url() . 'asset/image/LOGO ICON.png' ?>" alt="" srcset="" width="50">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel" style="margin-left: 10px;">Update <?php echo $title ?></h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" id="modal_chupao" aria-label="Close"></button>
+                        </div>
+                        <div class="container mt-3">
+                            <div class="alert text-center text-white" id="form_submition_alert" style="display:none;width:100%;font-size:14px; height:20px'" role="alert"> </div>
+                        </div>
+                        <form action="" id="update_form">
+                            <div class="modal-body" id="update_content">
 
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Update</button>
-                        </div>
-                    </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
 
     </body>
+    <!-- ---------alert--- -->
+    <?php modal_alert('alert_modal'); ?>
+    <!-- ---------alert--- -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url('asset/modal_alert.js') ?>"></script>
+
+
+    <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url('asset/modal_alert.js') ?>"></script>
     <script>
+        $("#modal_hide").click(function() {
+            $('#alert_modal').fadeOut("modal");
+        })
         $(document).ready(function() {
             $("#update_delete_table").DataTable({
                 responsive: true
@@ -324,7 +347,12 @@
                 data: $('#update_form').serialize(),
                 dataType: "json",
                 success: function(data) {
-                    console.log(data);
+                    if (data.status) {
+                        Call_modal_alert('alert_modal', data.message, data.class);
+                        $("#modal_chupao")[0].click()
+                    } else {
+                        Call_modal_alert('alert_modal', data.message, data.class);
+                    }
                 }
             });
         })

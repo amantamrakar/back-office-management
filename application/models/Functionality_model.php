@@ -12,8 +12,8 @@ class Functionality_model extends CI_Model
     public  function get_data($table)
     {
         $query = $this->db->get($table);
-        $ret = $query->result_array();
-        return $ret;
+        $query->result_array();
+        return $query;
     }
     public  function get_client_list($table, $tag)
     {
@@ -40,8 +40,8 @@ class Functionality_model extends CI_Model
 
     public function get_filtered_data($table_name, $data)
     {
-        echo my_arr($data);
-        die();
+        // echo my_arr($data);
+        // die();
         $tag = '';
         if ($table_name == 'LUMPSUM') {
             $tag = 'lum';
@@ -70,7 +70,7 @@ class Functionality_model extends CI_Model
         $rm_name = $data['rm_name'];
         $reject = $data['reject_status'];
         $scheme = $data['scheme_name'];
-        // $years = $data['filter_by_years'];
+        $years = $data['years'];
         // echo $years;
         $this->db->select('*');
         $this->db->from($table_name);
@@ -82,12 +82,19 @@ class Functionality_model extends CI_Model
         } elseif ($client_id != 0 && !empty($first_date) && !empty($second_date)) {
             $this->db->where('' . $tag . '_date BETWEEN "' . $first_date . '" AND "' . $second_date . '"');
         }
-
+        
         if (!empty($rm_name)) {
             $this->db->where('' . $tag . '_rm_name', $rm_name);
         }
         if (!empty($scheme)) {
             $this->db->like('' . $tag . '_scheme', $scheme);
+        }
+        if ($years != 0) {
+            $y =  str_replace('/', '', $years);
+            $y = str_split($y, '12');
+            $this->db->where('' . $tag . '_date BETWEEN "' . $y[0] . '" AND "' . $y[1] . '"');
+            $this->db->where(''.$tag.'_date !=' ,'0000-00-00');
+         
         }
         if ($table_name == 'LUMPSUM') {
             $reject_feild =  'lum_remark';
@@ -111,23 +118,23 @@ class Functionality_model extends CI_Model
             $reject_feild = 'swp_stop_remark';
         }
         if ($reject != 'All') {
-            if ($reject != 'Yes') {
+            if ($reject == 'No') {
                 if ($table_name == 'LUMPSUM' || $table_name == 'SIP' || $table_name == 'REDEMPTION' || $table_name == 'REDEMPTION' || $table_name == 'SWITCH' || $table_name == 'SIP-STOP' || $table_name == 'STP-STOP' || $table_name == 'SWP-STOP' || $table_name == 'COB') {
                     $this->db->where($reject_feild, 'Clear');
                     $this->db->or_where($reject_feild, 'Choose');
                     $this->db->or_where($reject_feild, '');
                 }
-                if($table_name == 'STP' || $table_name == 'SWP'){
+                if ($table_name == 'STP' || $table_name == 'SWP') {
                     $this->db->or_where($reject_feild, '');
                     $this->db->or_where($reject_feild, 'Monthly');
                     $this->db->or_where($reject_feild, 'Quaterly');
                     $this->db->or_where($reject_feild, 'Weekly');
                 }
-            } else {
+            } else if($reject == 'Yes') {
                 if ($table_name == 'LUMPSUM' || $table_name == 'SIP' || $table_name == 'REDEMPTION' || $table_name == 'REDEMPTION' || $table_name == 'SWITCH' || $table_name == 'SIP-STOP' || $table_name == 'STP-STOP'  || $table_name == 'SWP-STOP' || $table_name == 'COB') {
                     $this->db->where($reject_feild, 'Reject');
                 }
-                if ($table_name == 'STP' || $table_name == 'SWP' ) {
+                if ($table_name == 'STP' || $table_name == 'SWP') {
                     $this->db->where($reject_feild, 'Reject');
                 }
             }

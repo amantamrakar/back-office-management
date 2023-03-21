@@ -8,31 +8,33 @@ $nav_arr = array('LUMPSUM', 'SIP', 'REDEMPTION', 'SWITCH', 'STP',  'SWP', 'SIP-S
 $image = array('LUMPSUM_Modified.png', 'SIP_Modified.png', 'REDEMPTION_Modified.png', 'SWITCH_Modified.png', 'STP_Modified.png',  'SWP_Modified.png', 'STOP_SIP_Modified.png', 'STOP-STP_Modified.png', 'STOP_SWP_Modified.png', 'COB_Modified.png');
 // echo $_GET['form'];
 ?>
+<div class="loader" id="loader_ajao">
+</div>
 <div class="container-fluid mt-3">
-    <div class="row text-center">
-        <div class="col-lg-1 col-md-1 col-sm-12"></div>
-        <?php
-        for ($i = 0; $i < count($nav_arr); $i++) { ?>
-            <div class="col-lg-1 col-md-2 col-sm-12">
-                <input type="radio" id="<?php echo $nav_arr[$i] ?>" data-form_value="<?php echo $nav_arr[$i] ?>" class="form_type " name="select_1" value="" <?php
-                                                                                                                                                                if ($nav_arr[$i] == 'LUMPSUM') {
-                                                                                                                                                                    echo 'checked';
-                                                                                                                                                                }
-                                                                                                                                                                ?>>
-                <label class="labling" for="<?php echo $nav_arr[$i] ?>">
-                    <img class="mt-3" src="<?php echo base_url('asset/image/'.$image[$i].'') ?>" alt="" srcset="" 
-                    style="border-radius: 4px;
+</div>
+<div class="row text-center">
+    <div class="col-lg-1 col-md-1 col-sm-12"></div>
+    <?php
+    for ($i = 0; $i < count($nav_arr); $i++) { ?>
+        <div class="col-lg-1 col-md-2 col-sm-12">
+            <input type="radio" id="<?php echo $nav_arr[$i] ?>" data-form_value="<?php echo $nav_arr[$i] ?>" class="form_type " name="select_1" value="" <?php
+                                                                                                                                                            if ($nav_arr[$i] == 'LUMPSUM') {
+                                                                                                                                                                echo 'checked';
+                                                                                                                                                            }
+                                                                                                                                                            ?>>
+            <label class="labling" for="<?php echo $nav_arr[$i] ?>">
+                <img class="mt-3" src="<?php echo base_url('asset/image/' . $image[$i] . '') ?>" alt="" srcset="" style="border-radius: 4px;
                             width: 35px;
                             height: 35px;
                             background-color: #fff;">
-                    <p class="mt-2" id=""><?php echo $nav_arr[$i] ?></p>
-                </label>
-            </div>
-        <?php
-        }
-        ?>
-        <div class="col-lg-1 col-md-1 col-sm-12"></div>
-    </div>
+                <p class="mt-2" id=""><?php echo $nav_arr[$i] ?></p>
+            </label>
+        </div>
+    <?php
+    }
+    ?>
+    <div class="col-lg-1 col-md-1 col-sm-12"></div>
+</div>
 </div>
 
 <div class="container-fluid mt-3" id="functionality_data">
@@ -44,6 +46,7 @@ $image = array('LUMPSUM_Modified.png', 'SIP_Modified.png', 'REDEMPTION_Modified.
 <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
 <script>
     function get_data_by_reload(value) {
+        $("#loader_ajao").show();
         $.ajax({
             type: "post",
             url: "<?php echo  base_url() . 'Functionality/Table' ?>",
@@ -51,7 +54,11 @@ $image = array('LUMPSUM_Modified.png', 'SIP_Modified.png', 'REDEMPTION_Modified.
                 form_value: value
             },
             success: function(response) {
-                $("#functionality_data").html(response)
+                if (response) {
+                    $("#functionality_data").html(response)
+                    $("#loader_ajao").hide();
+
+                }
             }
         });
     }
@@ -61,6 +68,7 @@ $image = array('LUMPSUM_Modified.png', 'SIP_Modified.png', 'REDEMPTION_Modified.
     });
 
     $(".form_type").click(function(e) {
+        $("#loader_ajao").show();
         var form = $(this).data('form_value');
         $.ajax({
             type: "post",
@@ -69,7 +77,12 @@ $image = array('LUMPSUM_Modified.png', 'SIP_Modified.png', 'REDEMPTION_Modified.
                 form_value: form
             },
             success: function(response) {
-                $("#functionality_data").html(response)
+                if (response) {
+                    $("#functionality_data").html(response)
+                    $("#loader_ajao").hide();
+
+                }
+                // $("#loader_ajao").show();
             }
         });
     })

@@ -8,6 +8,8 @@ $nav_arr = array('LUMPSUM', 'SIP', 'REDEMPTION', 'SWITCH', 'STP',  'SWP', 'SIP-S
 $image = array('LUMPSUM_Modified.png', 'SIP_Modified.png', 'REDEMPTION_Modified.png', 'SWITCH_Modified.png', 'STP_Modified.png',  'SWP_Modified.png', 'STOP_SIP_Modified.png', 'STOP-STP_Modified.png', 'STOP_SWP_Modified.png', 'COB_Modified.png');
 // echo $_GET['form'];
 ?>
+<div class="loader" id="loader_ajao">
+</div>
 <div class="container-fluid mt-3">
     <div class="row text-center">
         <div class="col-lg-1 col-md-1 col-sm-12"></div>
@@ -43,6 +45,7 @@ $image = array('LUMPSUM_Modified.png', 'SIP_Modified.png', 'REDEMPTION_Modified.
 <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
 <script>
     function get_data_by_reload(value) {
+        $("#loader_ajao").show();
         $.ajax({
             type: "post",
             url: "<?php echo  base_url() . 'show_data/show_all_client_data' ?>",
@@ -50,6 +53,7 @@ $image = array('LUMPSUM_Modified.png', 'SIP_Modified.png', 'REDEMPTION_Modified.
                 form_value: value
             },
             success: function(response) {
+                $("#loader_ajao").hide();
                 $("#show_all_data").html(response)
             }
         });
@@ -60,6 +64,7 @@ $image = array('LUMPSUM_Modified.png', 'SIP_Modified.png', 'REDEMPTION_Modified.
     });
 
     $(".form_type").click(function(e) {
+        $("#loader_ajao").show();
         var form = $(this).data('form_value');
         $.ajax({
             type: "post",
@@ -69,6 +74,7 @@ $image = array('LUMPSUM_Modified.png', 'SIP_Modified.png', 'REDEMPTION_Modified.
             },
             success: function(response) {
                 $("#show_all_data").html(response)
+                $("#loader_ajao").hide();
             }
         });
     })

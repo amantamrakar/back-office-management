@@ -49,9 +49,9 @@ class Functionality extends CI_Controller
             // die();
             $update = $this->functionality_model->update_my_forms($table_name, $id, $data);
             if ($update) {
-                echo json_encode(array('status' => true, 'message' => 'Successfully Update'));
+                echo json_encode(array('status' => true, 'message' => '' . $table_name . ' Successfully Update' , 'class' => 'bg-success','name'=>''.$table_name.''));
             } else {
-                echo json_encode(array('status' => false, 'message' => 'Data Not Update'));
+                echo json_encode(array('status' => false, 'message' => '' . $table_name . ' Not Update' , 'class' => 'bg-danger','name'=>''.$table_name.''));
             }
         } else {
             redirect(base_url() . 'admin/index');
@@ -69,16 +69,16 @@ class Functionality extends CI_Controller
                 'client_name' => $post['client_name'],
                 'reject_status' => $post['reject_status'],
                 'rm_name' => $post['rm_name'],
-                'scheme_name' => $post['scheme_name']
+                'scheme_name' => $post['scheme_name'],
+                'years' => $post['filter_by_years'],
             );
             // $rejection = $this->functionality_model->check_reject($table_name,$id);
             // echo my_arr($rejection);
             // die();
             // $this->fetch = ;
             $this->fetch['title'] = $table_name;
-            $this->fetch['data'] = $this->functionality_model->get_filtered_data($table_name,$data);
-            echo json_encode(array($this->load->view('filter_data/filtered_view.php', $this->fetch)));
-            
+            $this->fetch['data'] = $this->functionality_model->get_filtered_data($table_name, $data);
+            echo json_encode(array($this->load->view('filter_data/filtered_view', $this->fetch)));
         } else {
             redirect(base_url() . 'admin/index');
         }
@@ -109,12 +109,12 @@ class Functionality extends CI_Controller
             } elseif ($table_name == 'SWP-STOP') {
                 $tag = 'swp_stop';
             }
-            $data = $this->functionality_model->get_client_list($table_name,$tag);
+            $data = $this->functionality_model->get_client_list($table_name, $tag);
             $list = array();
-            for ($i=0; $i < count($data) ; $i++) {
-                array_push($list,array($data[$i]['id']=>$data[$i][''.$tag.'_client_name']));
+            for ($i = 0; $i < count($data); $i++) {
+                array_push($list, array($data[$i]['id'] => $data[$i]['' . $tag . '_client_name']));
             }
-            echo json_encode(array('status' => true, 'list'=>$list));
+            echo json_encode(array('status' => true, 'list' => $list));
         } else {
             redirect(base_url() . 'admin/index');
         }

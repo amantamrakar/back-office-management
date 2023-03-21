@@ -15,7 +15,9 @@ class Form_model extends CI_Model
     {
         $insert = $this->db->insert($table, $data_array);
         if($insert){
-            echo json_encode(array('status' => 'true'));
+            echo json_encode(array('status' => 'true','message'=>''.$table.'  Added Successfully' , 'class' => 'bg-success'));
+        }else{
+            echo json_encode(array('status' => 'false','message'=>''.$table.' Not  Added ' , 'class' => 'bg-danger'));
         }
     }
 }

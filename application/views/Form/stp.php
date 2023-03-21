@@ -27,6 +27,8 @@ $title = '';
 <body>
     <div id="content">
         <div class="container mt-3">
+            <div class="alert text-center text-white" id="form_submition_alert" style="display:none;width:100%;font-size:14px; height:20px'" role="alert">sdd
+            </div>
             <div class="card">
                 <h6 class="text-center rounded card_heading" id="card_heading" style="font-size: 15px;"><?php echo $data ?></h6>
                 <div class="card-body">
@@ -39,7 +41,7 @@ $title = '';
                             <input class="form-control form-control-sm mt-1" type="text" name="YmFzZTY0IGRlY29kZXI=" value="<?php echo base64_encode($data) ?>" id="" hidden>
                             <div class="col-md-3 col-sm-12">
                                 <label for="stp_date">Date</label>
-                                <input class="form-control form-control-sm mt-1" type="date" name="stp_date" id="stp_date">
+                                <input class="form-control form-control-sm mt-1" type="date" name="stp_date" id="stp_date" required>
                             </div>
                             <div class="col-md-3 col-sm-12">
                                 <label for="stp_s_no">S.No.</label>
@@ -68,11 +70,11 @@ $title = '';
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="stp_client_name">Client Name</label>
-                                <input class="form-control form-control-sm mt-1" type="text" name="stp_client_name" id="stp_client_name">
+                                <input class="form-control form-control-sm mt-1" type="text" name="stp_client_name" id="stp_client_name" required>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="stp_amc_name">AMC Name</label>
-                                <input class="form-control form-control-sm mt-1" type="text" name="stp_amc_name" id="stp_amc_name">
+                                <input class="form-control form-control-sm mt-1" type="text" name="stp_amc_name" id="stp_amc_name" required required>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="stp_l_e">L2E</label>
@@ -89,24 +91,24 @@ $title = '';
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="stp_scheme">Form Scheme Name</label>
-                                <input class="form-control form-control-sm mt-1" type="text" name="stp_scheme" id="stp_scheme">
+                                <input class="form-control form-control-sm mt-1" type="text" name="stp_scheme" id="stp_scheme" required>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="stp_submit">Submit Place</label>
-                                <input class="form-control form-control-sm mt-1" type="text" name="stp_submit" id="stp_submit">
+                                <input class="form-control form-control-sm mt-1" type="text" name="stp_submit" id="stp_submit" required>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="stp_to_scheme">To Scheme Name</label>
-                                <input class="form-control form-control-sm mt-1" type="text" name="stp_to_scheme" id="stp_to_scheme">
+                                <input class="form-control form-control-sm mt-1" type="text" name="stp_to_scheme" id="stp_to_scheme" required>
                             </div>
 
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="stp_folio_no">Folio No.</label>
-                                <input class="form-control form-control-sm mt-1" type="text" name="stp_folio_no" id="stp_folio_no">
+                                <input class="form-control form-control-sm mt-1" type="text" name="stp_folio_no" id="stp_folio_no" required>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="stp_amount">Amount</label>
-                                <input class="form-control form-control-sm mt-1" type="text" name="stp_amount" id="stp_amount">
+                                <input class="form-control form-control-sm mt-1" type="text" name="stp_amount" id="stp_amount" required>
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="stp_date_1">Date 1</label>
@@ -149,7 +151,7 @@ $title = '';
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="stp_other_info">STP Other Info</label>
-                                <input class="form-control form-control-sm mt-1"  type="text" name="stp_other_info" id="stp_other_info">
+                                <input class="form-control form-control-sm mt-1" type="text" name="stp_other_info" id="stp_other_info">
                             </div>
                             <div class="col-md-3 col-sm-12 mt-3">
                                 <label for="stp_stp_type">STP Type</label>
@@ -176,9 +178,17 @@ $title = '';
 
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- ---------alert--- -->
+<?php include_once('./asset/modal_alert.php'); ?>
+<?php modal_alert('alert_modal') ?>
+    <!-- ---------alert--- -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
+      $("#modal_hide").click(function() {
+            $('#alert_modal').fadeOut("modal");
+        })
     $("#<?php echo $data . 'Form' ?>").submit(function(e) {
         e.preventDefault();
         $.ajax({
@@ -187,7 +197,15 @@ $title = '';
             data: $("#<?php echo $data . 'Form' ?>").serialize(),
             dataType: "json",
             success: function(data) {
-                console.log(data);
+                if (data.status) {
+                        Call_modal_alert('alert_modal', data.message, data.class);
+                        $("#<?php echo $data . 'Form' ?>")[0].reset()
+                        setInterval(function() {
+                            window.location.reload()
+                        }, 1500)
+                    } else {
+                        Call_modal_alert('alert_modal', data.message, data.class);
+                    }
             }
         });
     })
